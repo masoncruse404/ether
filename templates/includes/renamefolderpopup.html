@@ -1,0 +1,15 @@
+<div class="newfolder-wrapper" id='renamefolder-popup'>
+    <div class="newfolder-r">
+        <h3>Rename</h3>
+        <i id="newfolder-close" class="fas fa-times" onClick="renameFolderClose()"></i>
+    </div>
+    <div class="newfolder-r1">
+        <form id='renamefolderform' method='post' action='#'>
+        <input id="renamefolderinput" type="text" name="newname-q" class="newfolder-q blueglow">
+        </form>
+    </div>
+    <div class="newfolder-r2">
+        <a href="#" class="close-link" onClick="renameFolderClose()"><div class="newfolder-cancel">CANCEL</div></a>
+        <a href="#" id="renamesubmit" class="create-link"><div onclick="document.getElementById('renamefolderform').submit();" class="newfolder-create">OK</div></a>
+    </div>
+</div>

@@ -1,0 +1,267 @@
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.accountsvg{
+    min-height:360px;
+    min-width:360px;
+}
+.gnamewrapper{
+    margin-top:1rem;
+    display:flex;
+    position:relative;
+}
+.cawrapper{
+    display:flex;
+    height:650px;
+    
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(0,0,0,.4);
+    border-radius:5px;
+}
+.cainputwrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin:2rem 4rem;
+}
+.casideimg{
+    display:flex;
+    align-content:center;
+}
+.cafname{
+    padding:5px;
+    border-width:1px;
+  border: 1px solid #DDDDDD;
+    border-radius:4px;
+    outline:blue;
+    margin-right:1rem;
+}
+.cafname:focus{
+    box-shadow:0 0 5px rgb(66,133,244);
+    border:1px solid rgb(66,133,244);
+}
+.calname{
+    padding:5px;
+    border-width:1px;
+  border: 1px solid #DDDDDD;
+    border-radius:4px;
+    outline:none;
+}
+.calname:focus{
+    box-shadow:0 0 5px rgb(66,133,244);
+    border:1px solid rgb(66,133,244);
+}
+.unamewrapper{
+}
+.capwordcheck:focus{
+    box-shadow:0 0 5px rgb(66,133,244);
+    border:1px solid rgb(66,133,244);
+    outline:none;
+}
+.capword:focus{
+    box-shadow:0 0 5px rgb(66,133,244);
+    border:1px solid rgb(66,133,244);
+}
+.cauname:focus{
+    box-shadow:0 0 5px rgb(66,133,244);
+    border:1px solid rgb(66,133,244);
+}
+.cauname{
+    padding:5px;
+    border-width:1px;
+  border: 1px solid #DDDDDD;
+    border-radius:4px;
+    outline:none;
+    margin-top:1rem;
+    min-width:403px;
+}
+.pwordwrapper{
+    margin-top:2rem;
+    display:flex;
+}
+.capword{
+    border-width:1px;
+  border: 1px solid #DDDDDD;
+    padding:5px;
+    border-radius:4px;
+    max-width:160px;
+    outline:none;
+    margin-right:1rem;
+}
+.capwordcheck{
+    padding:5px;
+    border-width:1px;
+  border: 1px solid #DDDDDD;
+    max-width:160px;
+    border-radius:4px;
+    outline:none;
+}
+.camargin{
+    margin:2rem 2rem;
+    max-width:405px;
+}
+.cabuttonwrapper{
+    display:flex;
+    margin-top:2.4rem;
+}
+.canexta{
+    margin-left:auto;
+    margin-right:1rem;
+    width:88px;
+    height:36px;
+    border-radius:4px;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    background-color:rgb(66,133,244);
+    font-family:arial;
+}
+.calogo{
+    height:100px;
+    width:100px;
+}
+.catitle p{
+    padding:0 0;
+    margin:0 0;
+    margin-bottom:2rem;
+    font-family:arial;
+    font-size:1.9em;
+}
+.casignin{
+    text-decoration:none;
+    color:black;
+}
+.cainputtext1{
+ margin-top:4px;
+}
+.cainputtext1 p{
+    font-size:.9em;
+    width:94%;
+    font-family:arial;
+}
+.cainputtext p{
+    font-size:.9em;
+    font-family:arial;
+}
+.cainputext1{
+}
+.currentemail{
+
+    color:rgb(66,133,244);
+    font-family:arial;
+    font-weight:500;
+}
+.caemail{
+    width400px;
+
+}
+#casignin{
+
+    color:rgb(66,133,244);
+    font-family:arial;
+    font-weight:500;
+}
+#fnlabel{
+    background-color:white;
+    position:absolute;
+    top:10px;
+    left:15; 
+    z-index:10;
+    font-size:1.2em;
+    color:rgba(0,0,0,.4);
+    pointer-events:none;
+    font-family:arial;
+}
+#lnlabel{
+    background-color:white;
+    position:absolute;
+    top:10px;
+    left:280; 
+    font-size:1.2em;
+    color:rgba(0,0,0,.4);
+    pointer-events:none;
+    font-family:arial;
+    z-index:10;
+}
+#emlabel{
+    background-color:white;
+    position:absolute;
+    top:295px;
+    left:110; 
+    z-index:10;
+    font-size:1.2em;
+    color:rgba(0,0,0,.4);
+    pointer-events:none;
+    font-family:arial;
+}
+.calabel{
+    padding:0 4px;
+}
+#confirmlabel{
+    background-color:white;
+    position:absolute; 
+    top:440px;
+    left:385; 
+    z-index:10;
+    font-size:1.2em;
+    color:rgba(0,0,0,.4);
+    pointer-events:none;
+    font-family:arial;
+}
+#pwlabel{
+    background-color:white;
+    position:absolute; 
+    top:440px;
+    left:110; 
+    z-index:10;
+    font-size:1.2em;
+    color:rgba(0,0,0,.4);
+    pointer-events:none;
+    font-family:arial;
+}
+#etlabel{
+    background-color:white;
+    position:absolute; 
+    top:302px;
+    left:390; 
+    z-index:10;
+    font-size:1.2em;
+    color:rgba(0,0,0,.8);
+    pointer-events:none;
+    font-family:arial;
+}
+button {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}

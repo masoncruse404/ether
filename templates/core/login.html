@@ -1,0 +1,107 @@
+{% load static %}
+<script src="{% static 'ether/js/jquery-3.1.1.min.js' %}"></script>
+<link rel='stylesheet' href='{% static 'core/css/login.css' %}'>
+<link rel='stylesheet' href='{% static 'core/css/alerts.css' %}'>
+ {% include 'includes/warninglogin.html' %}
+
+<div class='lnwrapper' id='ln'>
+    <div class='lnmargin'>
+    <div class='lnlogo'>
+        <img class='lnglogo' src='{% static 'images/google-logo.png' %}'>
+    </div>
+    <div class='lntitle'>
+        <span>Sign in</span>
+    </div>
+    <div class='lnsub'>
+        <span>Use your Ether Account</span>
+    </div> <div class='lnuser'>
+    <label id='emlabel' class='lnemaillabel'>Email or phone</label>
+    <div id='lgemail'>{{ form.email }}</div>
+    </div>
+    <a class='lnfe' href='#'>Forgot email?</a>
+    <div class='lnsug'>
+        <span>Not your computer? Use Guest mode to sign in privately.</span>
+    </div>
+    <a href='#' class='lnlm'>Learn more</a>
+    <div class='lnbtnwrapper'>
+    <a href='/users/createaccount' class='lnca'>Create account</a>
+    <div class='lnbtnw'>
+    <button id='usernamecheck' class='lnbtn'>Next</button>
+    </div>
+    </div>
+    </div>
+</div>
+<script src='{% static 'core/js/login.js' %}'></script>
+ <script>
+    document.getElementById('usernamecheck').onclick = function(){
+    var username = $("#id_email").val();
+
+      $.ajax({
+        url: '/users/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            location.href='/users/loginpw/'
+
+          }
+          else{
+            $("#myalert").css("display","block");
+
+          }
+        }
+      });
+
+
+
+
+
+    };
+    $("#id_email").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/users/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+           
+            location.href='/users/loginpw/'
+          }
+          else{
+             $("#myalert").css("display","block");
+
+          }
+        }
+      });
+
+    });
+    $("#id_email").on('keyup', function(e) {
+      if (e.keyCode === 13)
+      {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/users/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+          }
+          else{
+          }
+        }
+      });
+     }
+
+    });
+
+	
+  </script>

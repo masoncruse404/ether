@@ -1,0 +1,70 @@
+.show {
+  z-index: 1000;
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow:0 0 2px #000000;
+  width:300px;
+  border-radius:5px;
+  padding: 2px 0;
+  display: block;
+  margin: 0;
+  list-style-type: none;
+  list-style: none;
+}
+#rmenu{
+  
+}
+.hide {
+  opacity: 0;
+  transition: visibility 0s, opacity 0.75s linear;
+  display: none;
+}
+.show{
+  opacity: 1;
+}
+.show li {
+  list-style: none;
+}
+.show ul{
+    padding: 0 0;
+}
+
+.show a {
+  border: 0 !important;
+  height:40px;
+  padding:0 0;
+  text-decoration: none;
+  display:flex;
+  align-items:center;
+  justify-content:start;
+  font-size:1.3em;
+  color:rgba(0,0,0,.8);
+  font-family:arial;
+}
+
+.show a:hover {
+    background-color:rgba(0,0,0,.2);
+}
+.cm-icon-wrapper{
+    height:20px;
+    width:10px;
+    margin-left:2.3rem;
+    margin-right:2rem;
+}
+
+.folderhr{
+    border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color:rgba(0,0,0,.2);
+  margin-top:.4rem;
+  margin-bottom:.4rem;
+  height: 1px;
+}
+.fileupload-wrapper{
+  position: absolute;
+}
+#fileupload{
+  margin-right:1rem;
+}

@@ -1,0 +1,79 @@
+    
+   <div class="nav-ul">
+       <a class="nav-link {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
+       {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
+       {% if request.resolver_match.url_name == "share" %}active{% endif %}
+       {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}"
+        {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}"
+        {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}"     
+        href="/uploads/mydrive/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
+            {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
+            {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "share" %}active{% endif %}
+            ">
+                <div class="icon-wrapper">
+                    <i class="far fa-hdd navicon"></i>
+                </div>
+                <span>My Drive</span>
+            </div>
+        </a>
+        <a class="nav-link">
+            <div class="nav-item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-share navicon"></i>
+                </div>
+                <span>Shared with me</span>
+            </div>
+        </a>
+       <a class="nav-link {% if request.resolver_iatch.url_name == "recent" %}active{% endif %}" href="/uploads/recent/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "recent" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="fas fa-clock navicon"></i>
+                </div>
+                <span>Recent</span>
+            </div>
+        </a>
+        <a class="nav-link {% if request.resolver_iatch.url_name == "starred" %}active{% endif %}{% if request.resolver_match.url_name == "star" %}active{% endif %}
+         {% if request.resolver_match.url_name == "removestar" %}active{% endif %}
+         {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}" href="/starred/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "starred" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "star" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "removestar" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="far fa-star navicon"></i>
+                </div>
+                <span>Starred</span>
+            </div>
+        </a>
+        <a class="nav-link {% if request.resolver_iatch.url_name == "trash" %}active{% endif %}" href="/trash/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "trash" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="fas fa-trash navicon"></i>
+                </div>
+                <span>Trash</span>
+            </div>
+        </a>
+        <hr class="nav-hr">
+        <a class="nav-link" id="backups">
+            <div class="nav-item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-upload navicon"></i>
+                </div>
+                <span>Backups</span>
+            </div>
+        </a>
+        <hr class="nav-hr" />
+        <a class="nav-link-nohover">
+            <div class="nav-item nover">
+                <div class="icon-wrapper">
+                    <i class="far fa-hdd navicon"></i>
+                </div>
+                <span>Storage</span>
+            </div>
+        </a>
+      </div>
+    </div>

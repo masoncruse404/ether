@@ -1,0 +1,153 @@
+.new-popup-wrapper{
+    background-color:white;
+    margin-top:.81rem;
+    z-index:999;
+    margin-left:.81rem;
+    background-color:white;
+    display:none;
+    width:340px;
+    position:absolute;
+    border-radius:10px;
+    border:1px solid rgba(0,0,0, .1);
+    padding-top:1rem;
+    padding-bottom:1rem;
+    box-shadow:0 4px 8px rgba(51,3,0,.4)
+    opacity:0;
+}
+
+.new-popup-item{
+    display:flex;
+    justify-content:start;
+    align-items:center;
+    padding:7.5px;
+    font-size:1.2em;
+    font-family:arial;
+    position:relative;
+}
+
+.new-popup-item:hover{
+    background-color:rgba(0,0,0,.055);
+}
+
+.new-icon-wrapper{
+    margin-left:1rem;
+    width:35px;
+}
+
+.myhr1{
+    background-color:rgba(0,0,0,.085);
+}
+
+.myhr{
+    border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color:rgba(0,0,0,.2);
+  margin-top:.4rem;
+  margin-bottom:.4rem;
+  height: 1px;
+}
+.myhr1{
+    border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color:rgba(0,0,0,.2);
+  margin-top:.4rem;
+  margin-bottom:.4rem;
+  height: 1px;
+}
+
+#folder-upload{
+    margin-top:.25rem;
+}
+.folderform{
+    position:absolute;
+    padding:0 0;
+}
+#formitem{
+    padding:0 0;
+    display:flex;
+    align-items:center;
+    justify-content:start;
+    flex-wrap:nowrap;
+}
+#folderupload{
+
+    padding:0 0;
+    margin-left:1.45rem;
+    margin-right:1rem;
+    width:200px;
+    display:flex;
+    position:absolute;
+    top:10;
+    align-items:center;
+    justify-content:start;
+    flex-wrap:nowrap;
+}
+.folderupload-wrapper{
+    display:flex;
+    word-break:keep-all;
+    height:40px;
+    align-items:center;
+    justify-content:start;
+    flex-wrap:nowrap;
+}
+.folderuinput{
+    width:340px;
+    height:40px;
+}
+#folderuploadicon{
+    margin-right:.9rem;
+}
+#new-hr1{
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  margin:1rem 0;
+  background-color:black;
+  border:1px solid black;
+  height: 1px;
+}
+#new-hr{
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:rgba(0,0,0,.2);
+  height: 1px;
+}
+#fileuploaditem{
+}
+#newfolder{
+    margin-bottom:1rem;
+}
+#fileuploadwrapper{
+    padding:0 0;
+    position: absolute;
+    margin:0 0;
+    opacity: 0;
+    height: 100%
+    width:100%;
+}
+#fileupload-wrapper{
+   
+}
+.new-popup-item{
+    pointer-events: none;
+}
+#fileuploadwrapper{
+    pointer-events:auto;
+}
+#formitem{
+    pointer-events:auto;
+}
+#newfolder{
+    pointer-events:auto;
+}
+#fileuploadicon{
+    margin-left:1rem;
+    margin-right:.4rem;
+}

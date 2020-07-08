@@ -1,0 +1,252 @@
+{% extends 'html/base.html' %}
+
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static "ether/css/my-drive.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/folders.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/flexboxgrid.css" %}">
+
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+{% block content1 %}
+{% if today_list %}
+<div class="files-title">Today</div>
+<section id="gridsection">
+<div class='flexbox'>
+{% for image in today_list %}
+<div id="f{{image.id}}" class="list-item f-{{image.id}}" onClick='t(this.id)'>
+<a href="#!" class="file">
+    <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
+        {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
+            {% elif 'html' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+        
+      <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
+          <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
+            <div class='file-icon-circle'>
+            <i id='file-icon' class="far fa-hdd file-icon"></i>
+            </div>
+           </div>
+
+        <div class='list-footer-name'>
+            <span id="filefooter{{image.id}}" class="filenamespan">{{ image.name }}</span>
+        </div>
+      </div>
+    </div>
+</a>
+  </div>
+{% endfor %}
+
+</section>
+{% endif %}
+{% if week_list %}
+<div class="files-title">Week</div>
+<section id="gridsection">
+<div class='flexbox'>
+{% for image in week_list %}
+<div id="f{{image.id}}" class="list-item f-{{image.id}}" onClick='t(this.id)'>
+<a href="#!" class="file">
+    <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
+        {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
+            {% elif 'html' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+        
+      <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
+          <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
+            <div class='file-icon-circle'>
+            <i id='file-icon' class="far fa-hdd file-icon"></i>
+            </div>
+           </div>
+
+        <div class='list-footer-name'>
+            <span id="filefooter{{image.id}}" class="filenamespan">{{ image.name }}</span>
+        </div>
+      </div>
+    </div>
+</a>
+  </div>
+{% endfor %}
+
+</section>
+{% endif %}
+{% if month_list %}
+<div class="files-title">Month</div>
+<section id="gridsection">
+<div class='flexbox'>
+{% for image in month_list %}
+<div id="f{{image.id}}" class="list-item f-{{image.id}}" onClick='t(this.id)'>
+<a href="#!" class="file">
+    <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
+        {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
+            {% elif 'html' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+        
+      <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
+          <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
+            <div class='file-icon-circle'>
+            <i id='file-icon' class="far fa-hdd file-icon"></i>
+            </div>
+           </div>
+
+        <div class='list-footer-name'>
+            <span id="filefooter{{image.id}}" class="filenamespan">{{ image.name }}</span>
+        </div>
+      </div>
+    </div>
+</a>
+  </div>
+{% endfor %}
+
+</section>
+{% endif %}
+{% if year_list %}
+<div class="files-title">Year</div>
+<section id="gridsection">
+<div class='flexbox'>
+{% for image in year_list %}
+<div id="f{{image.id}}" class="list-item f-{{image.id}}" onClick='t(this.id)'>
+<a href="#!" class="file">
+    <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
+        {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
+            {% elif 'html' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+        
+      <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
+          <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
+            <div class='file-icon-circle'>
+            <i id='file-icon' class="far fa-hdd file-icon"></i>
+            </div>
+           </div>
+
+        <div class='list-footer-name'>
+            <span id="filefooter{{image.id}}" class="filenamespan">{{ image.name }}</span>
+        </div>
+      </div>
+    </div>
+</a>
+  </div>
+{% endfor %}
+
+</section>
+{% endif %}
+{% endblock %}
+{% block js %}
+<script src="{% static "ether/js/bbase.js" %}"></script>
+{% endblock %}
+  
+

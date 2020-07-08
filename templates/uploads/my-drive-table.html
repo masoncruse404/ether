@@ -1,0 +1,120 @@
+{% extends 'html/basetable.html' %}
+
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static "ether/css/folders.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/qafilecontainer.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/flexboxgrid.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/fileupload.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/movetopopupstyle.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/searchresults.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/filetable.css" %}">
+
+
+    
+    <script>  
+
+
+  </script>
+
+  
+
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'ether/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+<script src="{% static 'ether/js/bbase.js' %}"></script>
+<script src="{% static 'ether/js/movetopopup.js' %}"></script>
+<script src="{% static 'ether/js/filetable.js' %}"></script>
+<script src="{% static 'ether/js/searchui.js' %}"></script>
+
+
+{# PHOTOS PAGE SCRIPTS #}
+<script src="{% static 'uploads/js/progress-bar-upload-table.js' %}"></script>
+
+
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block content1 %}
+
+    {% if qa_list  %}
+    <div>
+    <div class="qafiles-title">Quick Access</div>
+    <div class='qacon'>
+       
+        {% for image in qa_list %}
+        {% if image.trash == False %}
+        <a href="#" id="q{{image.id}}" class="qafilea" onclick='q(event,this.id)'>
+            <div class='qawrapper'>
+            <div class='qacontent'>
+        {% if image.file %}
+            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.url }}">
+                {% endif %}
+              
+            </div>
+            <div id='qfooterq{{image.id}}'class='qafooter'>
+                <div class='qafooterwrapper'>
+                <div class='qanamewrapper'>
+                    <i id='qaicon' class="far fa-file-image fa-lg icon qaicon"></i>
+                    <span id="qanameq{{image.id}}"class='qaname'>{{ image.name }}</span>
+                </div>
+                <div class='qadate'>
+                    {{ image.modified }}
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+        </a>
+        {% endif %}
+        {% endfor %}
+
+        </div>
+      
+    </div>
+    {% endif %}
+
+{% if folder_list %}
+<div>
+<div class="folders-title">Folders</div>
+<div class="folders-wrapper">
+            {% for folder in folder_list %}
+            <a  href="{% url  'subfolder' folder.id %}">
+            <div id="foldercontent-{{ folder.id }}" class="foldercontainer">
+                <i id="folder" class="fas fa-folder fa-lg icon"></i>
+                <span>{{folder.name}}</span>
+            </div>
+            </a>
+            {% endfor %}
+</div>
+</div>
+{% endif %}
+
+   
+  {% include 'includes/filetable.html' %}
+  {% include 'includes/movetopopup.html' %}
+
+    {% if not image_list and not qa_list and not folder_list %}
+    
+    {% endif %}
+</div>
+{% include 'includes/fileupload/fileupload.html' %}      
+{% endblock %}
+
+ {% include 'includes/filecontextfolder.html' %}
+
+{% block js %}
+
+<script src="{% static "ether/js/bbase.js" %}"></script>
+<script src="{% static "ether/js/fileupload.js" %}"></script>
+<script src="{% static "ether/js/fileupload.js" %}"></script>
+<script src="{% static "ether/js/movetopopup.js" %}"></script>
+<script src="{% static "ether/js/showimages.js" %}"></script>
+
+{% endblock %}
+  

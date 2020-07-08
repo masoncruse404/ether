@@ -1,0 +1,13 @@
+{% if files.count > 0 %}
+
+{% for fi in files|slice:":8" %}
+<div class="sharerow" id="sharerowrap-{{fi.id}}">
+    <div id="sharerow-{{fi.id}}" class="shareuser">{{fi}}</div>
+</div>
+{% endfor %}
+
+{% else %}
+
+<li>None to show!</li>
+
+{% endif %}

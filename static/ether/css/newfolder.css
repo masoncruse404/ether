@@ -1,0 +1,85 @@
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input[type=text], textarea {
+ 
+  outline: none;
+ 
+}
+ 
+.blueglow{
+  box-shadow: 0 0 5px #4285f4;
+  
+  border: 1px solid #4285f4;
+}
+
+.newfolder-wrapper{
+    background-color:white;
+    width:400px;
+    z-index:9999 !important;
+    height:185px;
+    border-radius:5px;
+    box-shadow:0 0 6px #ccc;
+    position:absolute;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:35%;
+    display:none;
+
+    
+}
+.newfolder-r{
+    display:flex;
+    margin-left:1.4rem;
+    align-items:center;
+}
+.newfolder-r h3{
+
+    font-family:arial;
+    margin-top:1.5rem;
+}
+#newfolder-close{
+    margin-left:auto;
+    margin-right:1.5rem;
+}
+.newfolder-q{
+    height:30px;
+    width:352.5px;
+    margin-left:1.45rem;
+    outline:none;
+}
+.newfolder-q:focus{
+    border 1px solid #4285f4;
+}
+
+.newfolder-r2{
+    margin-top:1.5rem;
+    display:flex;
+}
+.close-link{
+    margin-left:auto;
+    text-decoration:none;
+    margin-right:1rem;
+    padding:.6rem .6rem;
+    color:black;
+    font-family:arial;
+
+}
+.create-link{
+    margin-right:2rem;
+    background-color:#4285f4;
+    padding:.6rem .6rem;
+    text-decoration:none;
+    border-radius:4px;
+    font-family:arial;
+    color:white;
+}
+

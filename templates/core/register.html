@@ -1,0 +1,75 @@
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="{% static "css/register.css" %}">
+
+	</head>
+	<body>
+		<form method="post" action="">
+    {% csrf_token %}
+		<div class="registerwrapper">
+			<div class="wrapper">
+			<div class="registerimg">
+				<img src='{% static 'images/aussie2.jpg' %}'>
+			</div>
+			<div class="registerright">
+				<div class="registerinfo">
+					<div class="headerwrap">
+						<span>Create An Account!</span>
+					</div>
+					<div>
+						{{ form.first_name|default_if_none:"First name"|add_class:'registerinput registerfirstinput' }}
+						{{ form.last_name|add_class:'registerinput' }}
+					</div>
+
+					<!-- small screen init hidden -->
+					
+					<div>
+						{{ form.email|add_class:'registeremail registerinput' }}
+					</div>
+					<div id='passwordrow'>
+						{{ form.password|default_if_none:"Password"|add_class:'registerinput registerfirstinput' }}
+						{{ form.re_password|default_if_none:"Password"|add_class:'passwordbigscreen registerinput' }} 
+					</div>
+
+					<!-- smallscreen init hidden -->
+				
+
+
+					<div>
+						<button  type="submit" class='canexta' >Register Account</input>
+					</div>
+
+
+					<hr id="line" />
+
+					<div id="registersocial">
+						<div class="registergoogle"><span>Register with Google</span></div>
+						<div id="registerfacebook" class="registerfacebook"><span>Register with Facebook</span></div>
+					</div>
+
+					<div class="registerfacebooksmallscreen">
+						<div id="registerfacebookbtnsmallscreen" class="registerfacebook"><span>Register with Facebook</span></div>
+					</div>
+
+					<hr id="line1" />
+
+					<div id="forgotwrap">
+						<a href="#" class="forgot"><span>Forgot Password?</span></a>
+					</div>
+					<div id="loginwrap">
+						<a href="/users/login" class="forgot"><span>Already have an account? Login!</span></a>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+							</form>
+								{% endblock %}
+
+		<script src="{% static 'js/errorCheckRegister.js' %}"></script>
+	</body>
+</html>

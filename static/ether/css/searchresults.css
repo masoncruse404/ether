@@ -1,0 +1,145 @@
+.searchresultstabletitlewrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:50px;
+    border-bottom:1px solid rgba(0,0,0,.4);
+    position:sticky;
+    background-color:#fff;
+    z-index:9;
+    top:113;
+    position: -webkit-sticky;
+}
+
+.tablerightwrapper{
+    margin-left:auto;
+    width:400px;
+    display:flex;
+    align-items:center;
+}
+.tableowner{
+    width:30%;
+}
+
+.tablemodified{
+    width:30%;
+}
+
+.tablefilesize{
+    width:30%;
+}
+
+.tablerowwrapper{
+    cursor:pointer;
+    height:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:1px solid rgba(0,0,0,.4);
+    background-color:#fff;
+}
+
+.tablerowwrapper:focus{
+    background-color:#e8f0fe;
+}
+.tablerightowner{
+    width:30%;
+}
+.tablerightmodified{
+    width:30%;
+}
+
+.tablerightfilesize{
+    width:30%;
+}
+
+.tableiconwrapper{
+    width:40px;
+    height:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.tablenamecontainer{
+    display:flex;
+    align-items:center;
+    max-width:700px;
+    overflow:hidden;
+}
+
+@media(max-width:1100px){
+    .tablenamecontainer{
+    }
+}
+@media(max-width:1300px){
+    .tablenamecontainer{
+    }
+}
+
+.tablename span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+    font-weight:bold;
+}
+.tableowner span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+    font-weight:bold;
+}
+
+.tablemodified span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+    font-weight:bold;
+}
+.tablefilesize span{
+    font-family:'Roboto',arial;
+    font-weight:bold;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+}
+
+.tablenamewrapper span{
+    font-family:'Roboto',arial;
+    font-weight:bold;
+    color:rgba(0,0,0,.7);
+    font-size:.8em;
+}
+
+.tablerightowner span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+}
+
+.tablerightmodified span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.8em;
+}
+
+
+#tablewrapper{
+    width:100%;
+}
+
+.tablerightfilesize span{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:.7em;
+}
+#dash{
+    font-family:'Roboto',arial;
+    color:rgba(0,0,0,.6);
+    font-size:1.2em;
+}
+
+#statictableh{
+    posi0tion:sticky;
+    top:0;
+    position: -webkit-sticky;
+}

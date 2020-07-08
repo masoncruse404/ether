@@ -1,0 +1,102 @@
+.qa-wrapper{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    margin-top:1rem;
+}
+.qafile{
+    margin:.6rem;
+    border:1px solid rgba(0,0,0,.2);
+    font-family:arial;
+    border-radius:8px;
+
+}
+.qafile:last-child{
+    border:1px solid black;
+}
+@media (max-width:1200px){
+
+.qa-wrapper{
+    overflow:hidden;
+}
+ .qafile{
+    font-family:arial;
+    margin:.6rem;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:8px;
+    overflow:hidden;
+}   
+.qa-flex{
+    display:flex;
+    width:calc(100vh - 145px);
+    align-items:center;
+    justify-content:start;
+    overflow:hidden;
+}
+}
+
+.qa-flex{
+    display:flex;
+    align-items:center;
+    justify-content:start;
+    overflow:hidden;
+}
+#qaimg{
+    overflow:hidden;
+    flex-shrink:0;
+    min-width:100%;
+    min-height:100%;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+}
+
+.qafile-info{
+    height:71px;
+    border-top:1.4px solid rgba(0,0,0,.2);
+    font-family:arial;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+}
+.qafilecontainer-filename{
+    font-family:arial;
+    margin-top:1.2rem;
+    margin-left:1.5rem;
+}
+
+.qadate{
+    margin-top:1rem;
+    margin-left:1.5rem;
+    color:rgba(0,0,0,.65);
+    font-weight:550;
+    font-family:arial;
+    font-size:.82em;
+}
+.qa-title{
+    width:100%;
+    font-family:arial;
+    color:rgba(0,0,0,.8);
+    font-weight:bold;
+    margin-bottom:1rem;
+    margin-left:1rem;
+}
+.qafile{
+text-decoration:none;
+color:black;
+}
+#qaicon{
+    margin-right:.65rem;
+    font-size:1.5em;
+}
+#qaname{
+    font-family:arial;
+    font-weight:600;
+    color:rgba(0,0,0,.8);
+}
+.qafile-content{
+    display:flex;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height:130px;
+}

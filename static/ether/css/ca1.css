@@ -1,0 +1,73 @@
+.caemail{
+    margin-top:1rem;
+    padding:1rem;
+    width:101%;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,.4);
+    background-color:white;
+}
+.cafirstname{
+    z-index:-1;
+    padding:1em;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,.4);
+    background-color:white;
+}
+.calastname:focus{
+    border:2px solid rgb(66,133,244);
+    background-color:white;
+    outline:none;
+}
+.caemail:focus{
+    border:2px solid rgb(66,133,244);
+    background-color:white;
+    outline:none;
+}
+.cafirstname:focus{
+    border:2px solid rgb(66,133,244);
+    background-color:white;
+    outline:none;
+}
+.capasswordre:focus{
+    border:2px solid rgb(66,133,244);
+    background-color:white;
+    outline:none;
+}
+.capassword:focus{
+    border:2px solid rgb(66,133,244);
+    background-color:white;
+    outline:none;
+}
+.calastname{
+    padding:1em;
+    margin-left:1rem;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,.4);
+    background-color:white;
+}
+.capassword{
+    padding:1em;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,.4);
+    background-color:white;
+}
+.capasswordre{
+    padding:1em;
+    margin-left:1rem;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,.4);
+    background-color:white;
+}
+
+.canexta{
+	text-align:center;
+	vertical-align:center;
+	padding:0px;
+}
+
+
+@media(max-width:1100px){
+    .casideimg{
+        display:none;
+    }
+}

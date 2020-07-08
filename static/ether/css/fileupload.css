@@ -1,0 +1,182 @@
+#mbody{
+    display:none;
+}
+.fileuploadwrapper{
+    max-height:700px;
+    box-shadow:0 0 3px #ccc;
+    width:362px;
+    display:block;
+    position:fixed;
+    right:30;
+    bottom:30;
+    z-index:10;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.fuheader{
+    position:sticky;
+    top:0;
+    width:362px;
+    height:66px;
+    background-color:#323232;
+    display:none;
+    align-items:center;
+     z-index:10;
+}
+
+.futitle{
+    margin-left:2rem;
+    color:white;
+    font-family:arial;
+     z-index:10;
+}
+#t{
+    background-color: #fff;
+}
+.fubuttons{
+    margin-left:auto;
+    margin-right:1rem;
+    display:flex;
+    align-items:center;
+     z-index:10;
+}
+
+#futimes{
+    margin-left:1rem;
+    color:rgba(238, 238, 238, .4);
+}
+
+#fudown{
+
+    color:rgba(238, 238, 238, .4);
+}
+
+#fudown:hover{
+    color:white;
+}
+
+#futimes:hover{
+    color:white;
+}
+#fileuploadup{
+    height:40px;
+    width:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.fuhover{
+    height:40px;
+    width:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.fuhover:hover{
+    background-color:rgba(238, 238, 238, .1);
+    color:white;
+}
+.fufolder:hover{
+    background-color:rgba(238, 238, 238, 1);
+    border:1px solid rgba(0,0,0,.025);
+    color:black;
+}
+.flip {
+  transform: rotate(-180deg);
+}
+
+.fufilewrapper:hover{
+    background-color:#E8F0FE;
+}
+.fufilewrapper{
+    display:flex;
+    background-color:white;
+    align-items:center;
+    width:362px;
+    height:62px;
+}
+
+#futype{
+    margin-left:2rem;
+    margin-right:1rem;
+}
+.fufilewrapper:hover{
+    background-color:E8F0FE;
+}
+
+.fucheck{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+    margin-right:2.35rem;
+    height:24px;
+    width:24px;
+    border-radius:50%;
+    background-color:green;
+    color:white;
+}
+.fufolder{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+    margin-right:1.85rem;
+    height:40px;
+    width:40px;
+    color:#323232;
+    border-radius:50%;
+}
+.foldera{
+    margin-left:auto;
+    text-decoration:none;
+    display:none;
+}
+#funame{
+    font-family:'Roboto', 'arial';
+    font-weight:200;
+    font-size:.8em;
+    max-width:200px;
+    overflow:hidden;
+}
+
+
+#futype{
+    color:rgba(255,0,0,.8);
+}
+
+.fuprogresswrapper{
+     z-index:10;
+    background-color:rgba(238, 238, 238, .6);
+    display:none;
+    padding:.5rem;
+}
+
+.fuuploadcancel{
+    margin-left:auto;
+    text-decoration:none;
+    font-family:'Roboto';
+    font-size:.8em;
+}
+
+#futimer{
+    font-family:arial;
+    margin-left:.5rem;
+    font-size:.8em;
+    color:black;
+}
+
+#fileuploadup{
+    height:40px;
+    width:40px;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+   display:flex;
+}
+
+.rotatedown{
+    transform: rotate(180deg);
+}
