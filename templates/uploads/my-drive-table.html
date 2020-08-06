@@ -41,6 +41,7 @@
 {% endblock %}
 {% block content1 %}
 
+  
     {% if qa_list  %}
     <div>
     <div class="qafiles-title">Quick Access</div>
@@ -51,9 +52,39 @@
         <a href="#" id="q{{image.id}}" class="qafilea" onclick='q(event,this.id)'>
             <div class='qawrapper'>
             <div class='qacontent'>
-        {% if image.file %}
-            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.url }}">
-                {% endif %}
+    
+         {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.name }}">
+            {% elif 'html' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="qaimg" class="img-{{image.id}} audiofile" src="{% static 'images/sound-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+         
               
             </div>
             <div id='qfooterq{{image.id}}'class='qafooter'>

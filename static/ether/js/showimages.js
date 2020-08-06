@@ -3,13 +3,8 @@ function showImg(e){
 	
 	var id = e.split("-");
 	id = id[1];
-	console.log('id',id);
 
-if (parentDiv.contains(childDiv)) {
-  alert("yes");
-}
 	let x = $(e).attr('src');
-	console.log('src',x);
 	let ele = "<img src='"+x+"'></img>";
 	
     $('.imgscreen').css('display','flex');

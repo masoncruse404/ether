@@ -67,6 +67,8 @@ function searchSuccess(data, textStatus, jqXHR){
 {% endblock %}
 {% block javascript %}
 <script src="{% static 'ether/js/movetopopup.js' %}"></script>
+<script src="{% static 'ether/js/findfile.js' %}"></script>
+
 
 <script src="{% static 'ether/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
 <script src="{% static 'ether/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
@@ -93,10 +95,10 @@ function searchSuccess(data, textStatus, jqXHR){
             <div class='qawrapper'>
             <div class='qacontent'>
         {% if image.file %}
-            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.url }}">
+            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.name }}">
                 {% endif %}
                 {% if 'jpeg' or 'png' or 'jpg' in image.file_type %}
-                    <img id="qaimg" src="{% static image.path  %}">
+                    <img id="qaimg" src="{{ image.file.name }}">
                 {% endif %}
             </div>
             <div id='qfooterq{{image.id}}'class='qafooter'>
@@ -150,7 +152,7 @@ function searchSuccess(data, textStatus, jqXHR){
             {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
             <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
             {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
             {% elif 'html' in image.file_type %}
             <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
             {% elif 'css' in image.file_type %}
@@ -160,7 +162,7 @@ function searchSuccess(data, textStatus, jqXHR){
             <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
             <div id="audiofile-{{image.id}}" class="audiofilehide">
             <audio id="audio" class="audio-{{image.id}} " controls>
-            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            <source id="audiosource-{{image.id}}" src="{{ image.file.name }}" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
             </div>
@@ -168,7 +170,7 @@ function searchSuccess(data, textStatus, jqXHR){
             <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
             {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
             <video id="video" controls>
-            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            <source id="videosource-{{image.id}}" src="{{ image.file.name }}" type="video/mp4">
             Your browser does not support the video tag.
             </video>
 

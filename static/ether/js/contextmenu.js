@@ -33,6 +33,38 @@ $(document)
       document.getElementById("rmenu").className = "show";
       document.getElementById("rmenu").style.top = mouseY(event) + 'px';
       document.getElementById("rmenu").style.left = mouseX(event) + 'px';
+
+
+
+       if(isInViewport(document.getElementById("rmenu"))){
+          console.log('its in')
+        }else{
+          console.log('its not')
+          var element = document.getElementById("rmenu");
+          var rect = element.getBoundingClientRect();
+          console.log(rect.top, rect.right, rect.bottom, rect.left);
+        if (rect.top < 0) {
+        // Top is out of viewport
+        }
+
+        if (rect.left < 0) {
+        // Left side is out of viewoprt
+        }
+
+        if (rect.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
+        // Bottom is out of viewport    
+          var topVal = parseInt(element.style.top, 10);
+          element.style.top = (topVal - 300) + "px";
+        }
+
+        if (rect.right > (window.innerWidth || document.documentElement.clientWidth)) {
+        // Right side is out of viewport
+          console.log('right')
+          var topVal = parseInt(element.style.left, 10);
+          element.style.left = (topVal - 300) + "px";
+        }
+         
+        }
         document.getElementById("starred").onclick = function(){
             document.getElementById("addtostar").href = full;
         }
@@ -111,6 +143,37 @@ $(document)
       document.getElementById("rmenu").className = "show";
       document.getElementById("rmenu").style.top = mouseY(event) + 'px';
       document.getElementById("rmenu").style.left = mouseX(event) + 'px';
+
+
+       if(isInViewport(document.getElementById("rmenu"))){
+          console.log('its in')
+        }else{
+          console.log('its not')
+          var element = document.getElementById("rmenu");
+          var rect = element.getBoundingClientRect();
+          console.log(rect.top, rect.right, rect.bottom, rect.left);
+        if (rect.top < 0) {
+        // Top is out of viewport
+        }
+
+        if (rect.left < 0) {
+        // Left side is out of viewoprt
+        }
+
+        if (rect.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
+        // Bottom is out of viewport    
+          var topVal = parseInt(element.style.top, 10);
+          element.style.top = (topVal - 350) + "px";
+        }
+
+        if (rect.right > (window.innerWidth || document.documentElement.clientWidth)) {
+        // Right side is out of viewport
+          console.log('right')
+          var topVal = parseInt(element.style.left, 10);
+          element.style.left = (topVal - 300) + "px";
+        }
+         
+        }
         document.getElementById("starred").onclick = function(){
             document.getElementById("addtostar").href = full;
         }
@@ -124,7 +187,7 @@ $(document)
         }
     
         document.getElementById("sharecontext").onclick = function(){
-             document.getElementById("shareform").action = shareurl;
+             document.getElementById("shareform").action = "/share/"+ i + '/';
 
         }
 
@@ -189,8 +252,40 @@ $(document)
         var durl = "/download/" + trashid;
         var dfurl = "/downloadfolder/" + trashid;
       document.getElementById("rmenu").className = "show";
+
       document.getElementById("rmenu").style.top = mouseY(event) + 'px';
       document.getElementById("rmenu").style.left = mouseX(event) + 'px';
+
+       if(isInViewport(document.getElementById("rmenu"))){
+          console.log('its in')
+        }else{
+          console.log('its not')
+          var element = document.getElementById("rmenu");
+          var rect = element.getBoundingClientRect();
+          console.log(rect.top, rect.right, rect.bottom, rect.left);
+        if (rect.top < 0) {
+        // Top is out of viewport
+        }
+
+        if (rect.left < 0) {
+        // Left side is out of viewoprt
+        }
+
+        if (rect.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
+        // Bottom is out of viewport    
+          var topVal = parseInt(element.style.top, 10);
+          element.style.top = (topVal - 150) + "px";
+        }
+
+        if (rect.right > (window.innerWidth || document.documentElement.clientWidth)) {
+        // Right side is out of viewport
+          console.log('right')
+          var topVal = parseInt(element.style.left, 10);
+          element.style.left = (topVal - 300) + "px";
+        }
+         
+         
+        }
         document.getElementById("starred").onclick = function(){
             document.getElementById("addtostar").href = full;
         }
@@ -199,9 +294,14 @@ $(document)
             
         }
 
-        document.getElementById("moved").onclick = function(){
+        document.getElementById("movetoplace").onclick = function(){
+
             $("#movetopopupwrap").css("display","flex");
-            $("#movetoform").attr('action',movetourl)
+
+            var act = '/moveto/q-'+qid;
+            console.log('act ',act)
+            alert(act)
+            $("#movetoform").attr('action',act)
         }
 
 
@@ -226,6 +326,11 @@ $(document)
         document.getElementById("trash").onclick = function(){
             document.getElementById("addtotrash").href = tfull;
         }
+
+           document.getElementById("makeacopy").onclick = function(){
+            document.getElementById("makeacopy").href = '/copyfile/q-'+qid;
+        }
+
 
       window.event.returnValue = false;
 });
@@ -268,45 +373,6 @@ function mouseY(evt) {
   }
 }
 
-//$(document)
-    //.on('contextmenu', '.qafilea', function(e) {
-        //e.preventDefault();
-        //var i = this.id
-        //document.getElementById(i).click();
-        //console.log(this.id);
-        //var url = "/star/";
-        //var full = url + i;
-        //var turl = "/trash/";
-        //var tfull = turl + i;
-        //var durl = "/download/" + i;
-        //var dfurl = "/downloadfolder/" + i;
-        //console.log(full);
-      //document.getElementById("rmenuqa").className = "show";
-      //document.getElementById("rmenuqa").style.top = mouseY(event) + 'px';
-      //document.getElementById("rmenuqa").style.left = mouseX(event) + 'px';
-        //document.getElementById("starred").onclick = function(){
-            //document.getElementById("addtostar").href = full;
-        //}
-//
-        //document.getElementById("download").onclick = function(){
-            //document.getElementById("download").href = durl;
-        //}
-//
-        //document.getElementById("downloadfolder").onclick = function(){
-            //document.getElementById("downloadfolder").href = dfurl;
-        //}
-//
-        //document.getElementById("trash").onclick = function(){
-            //document.getElementById("addtotrash").href = tfull;
-            //console.log(tfull);
-        //}
-//
-      //window.event.returnValue = false;
-//});
-//
-
-
-// this is from another SO post...
 $(document).bind("click", function(event) {
   document.getElementById("rmenu").className = "hide";
   document.getElementById("rmenufolder").className = "hide";
@@ -338,7 +404,24 @@ function mouseY(evt) {
   }
 }
 
+function isInViewport(element){
+var myElement = element
+var bounding = myElement.getBoundingClientRect();
 
+if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
+
+    return 1
+} else {
+
+    return 0
+}
+}
+
+
+
+function test(){
+  alert(isInViewport(document.getElementById("elem"))?"Yes":"No"); 
+}
 
 $(document)
     .on('contextmenu', '.foldercontainer', function(e) {
@@ -354,21 +437,59 @@ $(document)
         var renameurl = "/renamefolder/" + i;
         var movetofolderurl = "/movefolderto/" + i;
 
-      document.getElementById("rmenufolder").className = "show";
+   
       document.getElementById("rmenufolder").style.top = mouseY(event) + 'px';
       document.getElementById("rmenufolder").style.left = mouseX(event) + 'px';
+        document.getElementById("rmenufolder").className = "show";
+        if(isInViewport(document.getElementById("rmenufolder"))){
+          console.log('its in')
+        }else{
+          console.log('its not')
+          var element = document.getElementById("rmenufolder");
+          var rect = element.getBoundingClientRect();
+          console.log(rect.top, rect.right, rect.bottom, rect.left);
+        if (rect.top < 0) {
+        // Top is out of viewport
+        }
+
+        if (rect.left < 0) {
+        // Left side is out of viewoprt
+        }
+
+        if (rect.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
+        // Bottom is out of viewport    
+          var topVal = parseInt(element.style.top, 10);
+          element.style.top = (topVal - 150) + "px";
+        }
+
+        if (rect.right > (window.innerWidth || document.documentElement.clientWidth)) {
+        // Right side is out of viewport
+          console.log('right')
+          var topVal = parseInt(element.style.top, 10);
+          element.style.left = (topVal + 150) + "px";
+        }
+         
+        }
         document.getElementById("starredfolder").onclick = function(){
             document.getElementById("addtostarfolder").href = full;
         }
 
+
+        document.getElementById("sharefolder").onclick = function(){
+             document.getElementById("sharefolderform").action = "/sharefolder/"+ i + '/';
+
+        }
         document.getElementById("downloadfolder").onclick = function(){
-            document.getElementById("downloadfolder").href = durl;
+            document.getElementById("downloadfolder").href = "/downloadfolder/" + i;
         }
 
         document.getElementById("trashfolder").onclick = function(){
             document.getElementById("addtotrashfolder").href = tfull;
         }
          
+        document.getElementById("copyfolder").onclick = function(){
+            document.getElementById("copyfolder").href = '/copyfolder/'+i;
+        }
 
         document.getElementById("renamefoldercontext").onclick = function(){
             $('#renamefolder-popup').css('display','block');

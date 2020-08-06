@@ -251,7 +251,6 @@ $( document ).ready(function() {
         password();
         repassword();
         $('#emlabel').css('top','7');
-        $('#emlabel').css('color','4285F4');
+        $('#emlabel').css('color','#4285F4');
 
-    console.log( "ready!" );
 });

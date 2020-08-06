@@ -156,8 +156,8 @@
 				let lastname = $("#id_last_name").val();
 				let lastnamesmall = $(".inputsmallscreenlastname").val();
 
-				console.log('email: ',email);
-				console.log('pw: ',pw);
+				
+
 
 				//user submitted form without supplying an email
 				if(email == ogemailvalue){

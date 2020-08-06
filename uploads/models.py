@@ -2,14 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 from profiles.models import Profile
 from django.utils import timezone
+from django.conf import settings
 
+BASE_DIR = settings.BASE_DIR
 def content_file_name(instance, filename):
     return '/'.join(['content', instance.user.username, filename])
 
 def user_directory_path(instance, filename):
+    print('if ',instance.path)
     # file will be uploaded to MEDIA_ROOT/beat/author/<filename>
-    x = instance.owner
-    x = str(x)+'/'+filename
+    if instance.path:
+        #subfolder
+        x =  instance.path + '/' + filename
+        print('this is instance path ',instance.path)
+        print('this is the path sub created ',x)
+    else:
+        #base folder
+        x = instance.owner
+        x = BASE_DIR+'/media/accounts/'+str(x)+'/genesis/'+filename
     print('x---- ',x)
     return x
 def get_user(instance):
@@ -43,6 +53,7 @@ class Folder(models.Model):
     children = models.ManyToManyField('self', related_name='folders')
     path = models.CharField(max_length=500, blank=True)
     starred = models.BooleanField(default=False)
+    sharedwith = models.ManyToManyField(Profile, related_name='shared_with_folder')
     #Genesis ID ROOT FOLDER ID
     trash = models.BooleanField(default=False)
     gid = models.IntegerField(default=0)

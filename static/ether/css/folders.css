@@ -1,12 +1,12 @@
 .folders-title{
     width:100%;
     max-height:50px;
-    filter:contrast(3);
+    filter:contrast(2);
     color:#5f6368;
     font-size:15px;
     font-weight:500;
     font-family:'roboto';
-    margin-left:1rem;
+    margin-left:.2rem;
     margin-top:1rem;
     margin-bottom:1rem;
 }
@@ -45,4 +45,10 @@
     .foldercontainer{
         width:240px;
     }
+}
+
+@media(max-width:600px){
+	.foldercontainer{
+	  width:180px;
+	}
 }

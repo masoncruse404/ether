@@ -11,8 +11,7 @@
     border:1px solid rgba(0,0,0, .1);
     padding-top:1rem;
     padding-bottom:1rem;
-    box-shadow:0 4px 8px rgba(51,3,0,.4)
-    opacity:0;
+    box-shadow: 0 0 10px #ccc;
 }
 
 .new-popup-item{

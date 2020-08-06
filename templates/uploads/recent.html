@@ -21,17 +21,14 @@
 <a href="#!" class="file">
     <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
         {% if image.file %}
-            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type or 'html' in image.file_type or 'css' in image.file_type%}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/filecodeicon.png' %}">
             {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
-            {% elif 'html' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
-            {% elif 'css' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
+            
             {% elif 'mp3' in image.file_type %}
           
-            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/soundfileicon.png' %}">
             <div id="audiofile-{{image.id}}" class="audiofilehide">
             <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
             <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
@@ -55,7 +52,14 @@
       <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
           <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
             <div class='file-icon-circle'>
-            <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% if 'html' in image.file_type or 'css' in image.file_type or 'js' in image.file_type or 'cpp' in image.file_type or 'py' in image.file_type %}
+                    <i id='file-icon' class="fa fa-code"></i>
+                {% elif 'mp3' in image.file_type %}
+                    <i id='file-icon' class="fa fa-volume-up"></i>
+                
+                {% else %}
+                    <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% endif %}
             </div>
            </div>
 
@@ -79,17 +83,14 @@
 <a href="#!" class="file">
     <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
         {% if image.file %}
-            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type or 'html' in image.file_type or 'css' in image.file_type%}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/filecodeicon.png' %}">
             {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
-            {% elif 'html' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
-            {% elif 'css' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
+            
             {% elif 'mp3' in image.file_type %}
           
-            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/soundfileicon.png' %}">
             <div id="audiofile-{{image.id}}" class="audiofilehide">
             <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
             <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
@@ -113,7 +114,14 @@
       <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
           <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
             <div class='file-icon-circle'>
-            <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% if 'html' in image.file_type or 'css' in image.file_type or 'js' in image.file_type or 'cpp' in image.file_type or 'py' in image.file_type %}
+                    <i id='file-icon' class="fa fa-code"></i>
+                {% elif 'mp3' in image.file_type %}
+                    <i id='file-icon' class="fa fa-volume-up"></i>
+                
+                {% else %}
+                    <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% endif %}
             </div>
            </div>
 
@@ -137,17 +145,14 @@
 <a href="#!" class="file">
     <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
         {% if image.file %}
-            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type or 'html' in image.file_type or 'css' in image.file_type%}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/filecodeicon.png' %}">
             {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
-            {% elif 'html' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
-            {% elif 'css' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
+            
             {% elif 'mp3' in image.file_type %}
           
-            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/soundfileicon.png' %}">
             <div id="audiofile-{{image.id}}" class="audiofilehide">
             <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
             <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
@@ -171,7 +176,14 @@
       <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
           <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
             <div class='file-icon-circle'>
-            <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% if 'html' in image.file_type or 'css' in image.file_type or 'js' in image.file_type or 'cpp' in image.file_type or 'py' in image.file_type %}
+                    <i id='file-icon' class="fa fa-code"></i>
+                {% elif 'mp3' in image.file_type %}
+                    <i id='file-icon' class="fa fa-volume-up"></i>
+                
+                {% else %}
+                    <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% endif %}
             </div>
            </div>
 
@@ -195,17 +207,14 @@
 <a href="#!" class="file">
     <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
         {% if image.file %}
-            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type or 'html' in image.file_type or 'css' in image.file_type%}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/filecodeicon.png' %}">
             {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{{ image.file.url }}">
-            {% elif 'html' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
-            {% elif 'css' in image.file_type %}
-            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
+            
             {% elif 'mp3' in image.file_type %}
           
-            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/soundfileicon.png' %}">
             <div id="audiofile-{{image.id}}" class="audiofilehide">
             <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
             <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
@@ -229,7 +238,14 @@
       <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
           <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
             <div class='file-icon-circle'>
-            <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% if 'html' in image.file_type or 'css' in image.file_type or 'js' in image.file_type or 'cpp' in image.file_type or 'py' in image.file_type %}
+                    <i id='file-icon' class="fa fa-code"></i>
+                {% elif 'mp3' in image.file_type %}
+                    <i id='file-icon' class="fa fa-volume-up"></i>
+                
+                {% else %}
+                    <i id='file-icon' class="far fa-hdd file-icon"></i>
+                {% endif %}
             </div>
            </div>
 

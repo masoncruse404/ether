@@ -6,7 +6,6 @@ $(document).on("mouseenter", ".fufilewrapper", function() {
     console.log("mouseneter");
     console.log(this);
   var elecheck = 'check' + this.id;
-  console.log(elecheck);
   $(this).children('.fucheck').css('display','none');
    $(this).children('.fufolder').css('display','flex');
 
@@ -17,8 +16,7 @@ $(document).on("mouseleave", ".fufilewrapper", function() {
           $(this).children('.fufolder').css('display','none');
       $(this).children('.fucheck').css('display','flex');
 
-       console.log("mouseleave");
-       console.log(this);
+      
 });
 }
 $(function () {
@@ -34,7 +32,6 @@ $(function () {
     start: function (e) {
        $("#fu").css('display','block');
        $("#mbody").css('display','block');
-      console.log(e)
       startHover();
       $(".fuheader").css('display','flex');
       $(".foldera").css('display','block');
@@ -64,7 +61,6 @@ $(function () {
             $(".futitle").text("Uploading "+count+" items");
         }
         count = count + 1;
-      console.log('here0');
       var $fufilewrapper = $("<div class='fufilewrapper'><i id='futype' class='far fa-image fa-lg'></i><span id='funame'>"+"</span></div>");
       var progress = parseInt(data.loaded / data.total * 100, 10);
       var strProgress = progress + "%";
@@ -78,7 +74,6 @@ $(function () {
               if(fileid){
                 fileid = fileid.substring(1);
 
-              console.log('fileid',fileid);
               }
 
        }
@@ -95,17 +90,15 @@ $(function () {
       if (data.result.is_valid) {
            fileid++;
       //add file to upload popup
-      console.log('here0');
       var checkid = 'check' + numdone;
       var folderid = 'folder' + numdone;
-      console.log(data.result);
       var $fufilewrapper = $("<div class='fufilewrapper' id=result-"+data.result.fileid+" onclick='findfile(this.id)'><i id='futype' class='far fa-image fa-lg'></i><span id='funame'>"+data.result.name+"</span><div class='fucheck' id="+checkid+"><i class='fas fa-check'></i></div><div id="+folderid+" class='fufolder'><i class='far fa-folder fa-lg'></i></div></div></div>");
       $("#mbody tbody").prepend($fufilewrapper);
         $("#gallery tbody").prepend(
           "<tr><td><a href='" + data.result.url + "'>" + data.result.name + "</a></td></tr>"
         )
       }
-
+      
       var id = data.result.fileid;
       var fid = 'f'+id;
       var newfileid = "f-" + id;
@@ -116,18 +109,15 @@ $(function () {
       console.log('filetype',filetype);
       var fileurl = 0;
       var footerid = "file-infof"+id;
-      if(filetype === 'png' || filetype === 'jpg' || filetype === 'jpeg'){
+    
         fileurl = data.result.url;
      
-        var newfile =  "<tr id='filetablerow-"+id+"' class='filetablerow' onclick='filetablerow(event,this.id)'>" +
-        "<td id='filename-"+id+"'class='fntb'>"+data.result.name+"</td>" +
-        "<td>me</td><td></td><td>"+data.result.size+"</td>"+
-        "</tr>";
-      $("#filetable tr:last").after(newfile);
-      }
-      else{
-       
-      }
+        var newfile =  "<div id='filetablerow-"+id+"' class='tablerowwrapper filetablerow' onclick='filetablerow(event,this.id)'>" +
+        "<div class='tablenamecontainer'><div class='tableiconwrapper'><i class='fas fa-image'></i></div><div class='tablenamewrapper'><span>"+data.result.name+"</span>" +
+        "</div></div><div class='tablerightwrapper'><div class='tablerightowner'><span>Me</span></div><div class='tablerightmodified'><span>Now</span></div><div class='tablerightfile'><span>-</span></div></div></div></div>";
+    
+      $(".filetablerow:last").after(newfile);
+
       
     }
 

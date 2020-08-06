@@ -4,6 +4,7 @@
 
 {% block js %}
 {% endblock %}
+<script language="javascript">var STATIC_URL = "{{ STATIC_URL|escapejs }}";</script>
 
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.5.0/css/all.css” integrity=“sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU” crossorigin=“anonymous">
@@ -40,12 +41,13 @@
 {% endif %}
 
 {% if successalert %}
- {% include 'includes/success.html' %}
+ {% include 'includes/successrect.html' %}
 {% endif %}
 
 {% include 'includes/audioplayer.html' %}
 {% include 'includes/newfolderpopup.html' %}
 {% include 'includes/sharepopup.html' %}
+{% include 'includes/sharefolderpopup.html' %}
 {% include 'includes/audiopopup.html' %}
 {% include 'includes/renamepopup.html' %}
 {% include 'includes/renamefolderpopup.html' %}
@@ -71,15 +73,19 @@
         {% if request.resolver_match.url_name == "removetrash" %}active{% endif %}
         {% if request.resolver_match.url_name == "removetrashfolder" %}active{% endif %}
         {% if request.resolver_match.url_name == "share" %}active{% endif %}
-        {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}"   
-        {% if request.resolver_match.url_name == "rename" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "users" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "file" %}active{% endif %}" 
-        {% if request.resolver_match.url_name == "home" %}active{% endif %}" 
-        {% if request.resolver_match.url_name == "mydrivetable" %}active{% endif %}"  
-        {% if request.resolver_match.url_name == "copyfile" %}active{% endif %}"      
+        {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
+        {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}
+        {% if request.resolver_match.url_name == "sharefolder" %}active{% endif %}
+        {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}
+        {% if request.resolver_match.url_name == "rename" %}active{% endif %}
+        {% if request.resolver_match.url_name == "users" %}active{% endif %}
+        {% if request.resolver_match.url_name == "file" %}active{% endif %} 
+        {% if request.resolver_match.url_name == "home" %}active{% endif %}
+        {% if request.resolver_match.url_name == "mydrivetable" %}active{% endif %}  
+        {% if request.resolver_match.url_name == "copyfile" %}active{% endif %}   
+        {% if request.resolver_match.url_name == "moveto" %}active{% endif %}"
+        {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}""    
+   
      
      
       
@@ -91,13 +97,17 @@
             {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
             {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}
             {% if request.resolver_match.url_name == "share" %}active{% endif %}
+            {% if request.resolver_match.url_name == "sharefolder" %}active{% endif %}
             {% if request.resolver_match.url_name == "rename" %}active{% endif %}
             {% if request.resolver_match.url_name == "users" %}active{% endif %}
             {% if request.resolver_match.url_name == "file" %}active{% endif %}
             {% if request.resolver_match.url_name == "home" %}active{% endif %}
             {% if request.resolver_match.url_name == "mydrivetable" %}active{% endif %}
-             {% if request.resolver_match.url_name == "copyfile" %}active{% endif %}
-            ">
+            {% if request.resolver_match.url_name == "copyfile" %}active{% endif %}
+            {% if request.resolver_match.url_name == "moveto" %}active{% endif %}
+            {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
+
+            "">
                 <div class="icon-wrapper">
                     <i class="far fa-hdd navicon"></i>
                 </div>

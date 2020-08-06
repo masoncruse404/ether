@@ -9,6 +9,21 @@ $( "#sharecontext" ).click(function() {
 function shareClose(){
 	$("#share-popup").css("display","none");
 }
+function shareFolderClose(){
+  $("#sharefolder-popup").css("display","none");
+}
+$( "#sharefolder" ).click(function() {
+  console.log('share clicked')
+  $("#sharefolder-popup").css("display","block");
+  $("#sharefolderinput").focus();
+  $(".imgcover").fadeTo(500, 0.5);
+
+});
+
+function shareClose(){
+  $("#share-popup").css("display","none");
+}
+
 
 
 $( "#subhshare" ).click(function() {
@@ -31,35 +46,3 @@ $( "#subhshare" ).click(function() {
 
 });
 
-/*
- $(function(){
-            $("#shareinput").keyup(function () {
-      var shareq = $("#shareinput").val();
-      console.log(shareq);
-      $.ajax({
-        type: "POST",
-        url: '/ajax/shareajax/',
-        data: {
-          'shareq': shareq
-        },
-        success: shareSuccess,
-        dataType: 'html'
-        
-
-    });
-    });
-});
-function shareSuccess(data, textStatus, jqXHR){
-      var searchq = $("#shareinput").val();
-   if(searchq.length === 0){
-
-    $('.share-hidden').css('display','none');
-    }
-    else
-    {
-    $('.share-hidden').css('display','block');
-    }
-    $('.share-hidden').html(data);
-    console.log(data);
-}   
-*/

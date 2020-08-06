@@ -2,19 +2,21 @@
     margin-top:20px;
     width:98%;
     margin-bottom:20px;
-     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+     
 
 }
+/*
 table {
-        border:1px solid grey;
-    border-radius: 5px; //Any radius you want. It will work perfectly!
+    border:1px solid grey;
+   //Any radius you want. It will work perfectly!
     border-spacing: -1
 }
 td {
     padding:0px;
 
 }
+
+
 
 table tr:first-child td, table tr:not(:last-child) td {
         border-bottom:1px solid grey;
@@ -33,10 +35,11 @@ th span{
 
 }
 
-
+*/
 
 #filetableheader{
-    color:rgba(0,0,0,.89);
+    border-top-left-radius: 5px;
+    color:rgba(0,0,0,.7825);
     border:1px solid #eaf1fe;
     height:60px;
     background-color:#eaf1fe;
@@ -47,13 +50,7 @@ th span{
 #fntableheader span{
     margin-left:20px;
 }
-.filetablerow td{
-    padding: 0;
-    margin: 0;
-    font-family:'Roboto',arial;
-    color:rgba(0,0,0,.8);
-    font-size:.7em;
-}
+
 #filetable td{
     padding: 0;
     margin: 0;
@@ -65,27 +62,16 @@ th span{
         padding-left: 20px;
 
 }
-.filetablerow{
-    cursor:pointer;
-    height:40px;
-    border-bottom:1px solid rgba(0,0,0,.4);
-    background-color:#fff;
-    border-left:1px solid rgba(0,0,0,.4);
-    border-right:1px solid rgba(0,0,0,.4);
-}
 
 .filetablerow:hover{
     background-color:rgba(0,0,0,.05);
 }
 .borderbottom{
 
-    border-bottom:1px solid grey;
+    border-bottom:1px solid rgba(0,0,0,.15);
     padding:0 0;
 }
 
-.filetablerow td:first-child{
-    padding-left:5px;
-}
 .taleft{
     text-align:left;
 }

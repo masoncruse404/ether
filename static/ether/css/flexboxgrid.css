@@ -33,11 +33,10 @@ ul, li {
   height:220px;
   max-width:100%;
   margin-top:20px;
-  margin-bottom:20px;
 }
 
 #img {
-  border:1px solid rgba(0,0,0,.3);
+  border:1px solid rgba(0,0,0,.15);
   border-bottom:none;
   border-top-left-radius:5px;
   height:180px;
@@ -64,7 +63,6 @@ h2 {
     10px - spacing between columns 
   */
   height:210px;
-  margin-bottom:20px;
 }
 }
 .list-content {
@@ -83,15 +81,14 @@ h2 {
 }
 
 .list-footer{
-    display:flex;
- 
-  border:1px solid rgba(0,0,0,.3);
+  display:flex;
+  border:1px solid rgba(0,0,0,.15);
   border-bottom-left-radius:5px;
   border-bottom-right-radius:5px;
   border-top:none;
-    align-items:center;
-    min-height:45px;
-    overflow:hidden;
+  align-items:center;
+  min-height:45px;
+  overflow:hidden;
 }
 .list-footer-name{
     overflow:hidden;
@@ -99,17 +96,20 @@ h2 {
     display:flex;
 }
 .list-footer-name span{
-    max-width:160px;
-    display:flex;
-    overflow:hidden;
- white-space: nowrap;
+  max-width:160px;
+  display:flex;
+  overflow:hidden;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color:black;
   font-family:'Roboto','arial';
-  font-size:.775em;
+  font-size:.835em;
   -webkit-text-stroke: 0.15px;
 
+}
+.file-icon{
+  font-size:1.15em;
 }
 
 .list-icon-wrapper{
@@ -118,6 +118,7 @@ h2 {
     justify-content:center;
 }
 #file-icon{
+    font-size:1.15em;
     color:black;
 }
 .file-icon-circle{
@@ -147,7 +148,7 @@ h2 {
 
 .flexbox {
     display:grid;
- 	grid-template-columns: repeat(4,1fr);
+ 	  grid-template-columns: repeat(4,1fr);
 }
 
 }
@@ -155,15 +156,15 @@ h2 {
 @media(max-width:1200px){
 
 .flexbox {
-    display:grid;
+  display:grid;
  	grid-template-columns: repeat(3,1fr);
   margin-bottom:7.5px;
-                grid-row-gap: 20px; 
-                grid-column-gap: 10px; 
+  grid-row-gap: 20px; 
+  grid-column-gap: 10px; 
 }
 
 .list-content {
-    width:200px;
+  width:200px;
   margin-bottom:7.5px;
 }
 
@@ -199,7 +200,12 @@ h2 {
 @media (hover: none) { 
 
     body{
-        background-color:red;
+    }
+    .user-logo-container{
+	    margin-right:20px;
+    }
+    .header-icon-wrapper{
+	    margin-right:0px;
     }
     .list-content{
      max-width:720px;
@@ -210,7 +216,7 @@ h2 {
 
 
 
-@media(max-width:600px){
+@media(max-width:620px){
     .flexbox {
   grid-template-columns: repeat(1,1fr);
 

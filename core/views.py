@@ -16,6 +16,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .forms import UserLoginForm
 from django.views.decorators.csrf import csrf_exempt
+from django.template import RequestContext
 User = get_user_model()
 
 class SignUpView(CreateView):
@@ -66,7 +67,6 @@ def validate_username(request):
     result = User.objects.filter(email__contains=username).exists() | User.objects.filter(email__exact=username).exists()
 
     if(result):
-            print('yessssiir')
             user = User.objects.filter(email__contains=username)[0]
             request.session['userid'] = user.id
     print(username)
@@ -81,7 +81,10 @@ def user_login(request):
     context = RequestContext(request)
     authentication_form = UserLoginForm
     form = UserLoginForm
-    uid = request.session['userid']
+    try:
+      uid = request.session['userid']
+    except KeyError:
+      return render(None,'core/login.html', {'form':form})
     user = User.objects.get(id=uid)
     print('username',user.firstname)
     username = user.firstname
@@ -101,7 +104,7 @@ def user_login(request):
                   return HttpResponseRedirect("/users/")
               else:
                   # Return a 'disabled account' error message
-                  return HttpResponse("You're account is disabled.")
+                  return HttpResponse("Your account is disabled.")
           else:
               # Return an 'invalid login' error message.
               print  ("invalid login details " + username + " " + password)
@@ -109,3 +112,20 @@ def user_login(request):
     else:
         # the login is a  GET request, so just show the user the login form.
         return render(None,'core/loginpw.html', {'form':form, 'user':user, 'initial':initial,'username':username})
+
+
+
+
+
+def handler404(request, *args, **argv):
+    response = render('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+
+def handler500(request, *args, **argv):
+    response = render(request, 'core/500.html', {})
+
+    response.status_code = 500
+    return response

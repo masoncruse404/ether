@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from core.models import CustomUser
 from django.utils import timezone
-
 import os
 
 MAX_STORAGE = 15000000
@@ -21,6 +20,8 @@ class Profile(models.Model):
     timesincelastlogin = models.CharField(max_length=100, blank=True,null=True)
     creationdate = models.DateTimeField(default=timezone.now())
     lastlogin = models.DateTimeField(blank=True,null=True)
+    sharedfiles = models.ManyToManyField("uploads.File", related_name='sharedfiles')
+    sharedfolders = models.ManyToManyField("uploads.Folder", related_name='sharedfolders')
 
     def __str__(self):
         return self.user.email

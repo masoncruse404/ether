@@ -1,0 +1,258 @@
+{% extends 'html/basetable.html' %}
+
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static "ether/css/folders.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/qafilecontainer.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/flexboxgrid.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/fileupload.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/movetopopupstyle.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/searchresults.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/filetable.css" %}">
+
+
+    
+    <script>  
+
+
+  </script>
+
+  
+
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'ether/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+<script src="{% static 'ether/js/bbase.js' %}"></script>
+<script src="{% static 'ether/js/movetopopup.js' %}"></script>
+<script src="{% static 'ether/js/searchui.js' %}"></script>
+
+
+{# PHOTOS PAGE SCRIPTS #}
+<script src="{% static 'uploads/js/progress-bar-upload-table.js' %}"></script>
+
+
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block content1 %}
+
+    {% if qa_list  %}
+    <div>
+    <div class="qafiles-title">Quick Access</div>
+    <div class='qacon'>
+       
+        {% for image in qa_list %}
+        {% if image.trash == False %}
+        <a href="#" id="q{{image.id}}" class="qafilea" onclick='qtable(event,this.id)'>
+            <div class='qawrapper'>
+            <div class='qacontent'>
+    
+         {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.name }}">
+            {% elif 'html' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="qaimg" class="img-{{image.id}}" src="{% static 'images/code.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="qaimg" class="img-{{image.id}} audiofile" src="{% static 'images/sound-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+         
+              
+            </div>
+            <div id='qfooterq{{image.id}}'class='qafooter'>
+                <div class='qafooterwrapper'>
+                <div class='qanamewrapper'>
+                    <i id='qaicon' class="far fa-file-image fa-lg icon qaicon"></i>
+                    <span id="qanameq{{image.id}}"class='qaname'>{{ image.name }}</span>
+                </div>
+                <div class='qadate'>
+                    {{ image.modified }}
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+        </a>
+        {% endif %}
+        {% endfor %}
+
+        </div>
+      
+    </div>
+    {% endif %}
+
+
+{% if folder_list %}
+<div>
+<div class="folders-title">Folders</div>
+<div class="folders-wrapper">
+            {% for folder in folder_list %}
+            <a  href="{% url  'subfolder' folder.id %}">
+            <div id="foldercontent-{{ folder.id }}" class="foldercontainer">
+                <i id="folder" class="fas fa-folder fa-lg icon"></i>
+                <span>{{folder.name}}</span>
+            </div>
+            </a>
+            {% endfor %}
+</div>
+</div>
+{% endif %}
+
+   
+
+
+
+   
+    {% if image_list %}
+    <div id="tablewrapper">
+    <div id='statictableh' class="searchresultstablewrapper">
+    <div class="searchresultstabletitlewrapper">
+        
+
+        <div class="tablename">
+            <span>Name</span>
+        </div>
+
+        <div class="tablerightwrapper">
+        <div class="tableowner">
+            <span>Owner</span>
+        </div>
+
+        <div class="tablemodified">
+            <span>Last modified</span>
+        </div>
+
+        <div class="tablefilesize">
+            <span>File size</span>
+        </div>
+        </div>
+
+
+    </div>
+    {% for image in image_list %}
+    {% if 'mp3' in image.file_type %}
+          
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio-{{image.id}}" class="audio-{{image.id}} hideaudio " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+    <div id="filetablerow-{{image.id}}" class="tablerowwrapper filetablerow audiofile" onclick="filetablerow(event,this.id)">
+    {% else %}
+    <div id="filetablerow-{{image.id}}" class="tablerowwrapper filetablerow" onclick="filetablerow(event,this.id)">
+    {% endif %}
+        <div class="tablenamecontainer">
+        <div class="tableiconwrapper">
+            <i class="fas fa-image"></i>
+        </div>
+        <div class="tablenamewrapper">
+            <span>{{image.name}}</span>
+        </div>
+        </div>
+
+        <div class="tablerightwrapper">
+            <div class="tablerightowner">
+              
+                {% if image.owner.user.email == me %}
+                <span>me</span>
+                {% else %}
+                <span>{{image.owner.user.emai}}</span>
+                {% endif %}
+             
+            </div>
+
+            <div class="tablerightmodified">
+                <span>{{image.modified}}</span>
+            </div>
+
+            <div class="tablerightfilesize">
+                    {% if image.size %}
+                    <span>{{image.size}}</span>
+                    {% else %}
+                    <span id="dash">-</span>
+                    {% endif %}
+            </div>
+
+        </div>
+    </div>
+    
+{% endfor %}
+</div>
+</div>
+{% else %}
+    <div id="tablewrapper">
+    <div id='statictableh' class="searchresultstablewrapper">
+    <div class="searchresultstabletitlewrapper">
+        
+
+        <div class="tablename">
+            <span>Name</span>
+        </div>
+
+        <div class="tablerightwrapper">
+        <div class="tableowner">
+            <span>Owner</span>
+        </div>
+
+        <div class="tablemodified">
+            <span>Last modified</span>
+        </div>
+
+        <div class="tablefilesize">
+            <span>File size</span>
+        </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+{% endif %}
+
+   
+  {% include 'includes/movetopopup.html' %}
+
+    {% if not image_list and not qa_list and not folder_list %}
+    
+    {% endif %}
+</div>
+{% include 'includes/fileupload/fileupload.html' %}      
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static "ether/js/bbase.js" %}"></script>
+<script src="{% static "ether/js/fileupload.js" %}"></script>
+<script src="{% static "ether/js/fileupload.js" %}"></script>
+<script src="{% static "ether/js/movetopopup.js" %}"></script>
+<script src="{% static "ether/js/showimages.js" %}"></script>
+
+{% endblock %}
+  

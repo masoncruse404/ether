@@ -6,13 +6,13 @@
     justify-content:center;
     max-height:120px;
     min-height:115px;
-    border:1px solid rgba(0,0,0,.3);
+    border:1px solid rgba(0,0,0,.15);
     border-bottom:none;
 }
 .qafooter{
     max-height:73px;
     min-height:65px;
-    border:1px solid rgba(0,0,0,.3);
+    border:1px solid rgba(0,0,0,.15);
     border-bottom-left-radius:8px;
     border-bottom-right-radius:8px;
     white-space: nowrap;
@@ -30,9 +30,9 @@ body{
 -webkit-font-smoothing: antialiased;
 }
 .qafiles-title{
-    filter:contrast(3);
+    filter:contrast(2);
     margin-top:1.5rem;
-    margin-left:1rem;
+    margin-left:.2rem;
     color:#5f6368;
     display:flex;
     margin-bottom:15px;
@@ -66,6 +66,7 @@ body{
     color:rgba(0,0,0,.65);
     font-family:'Roboto', arial;
     font-size:.75em;
+    -webkit-text-stroke:.214px;
 
 }
 .qawrapper{
@@ -80,10 +81,11 @@ body{
 }
 .qacon{
     display:grid;
- 	grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6,1fr);
     max-height:194px;
     overflow-x:hidden;
     overflow-y:hidden;
+    margin-bottom:30px;
 }
 .qacontent{
     border-top-left-radius:8px;
@@ -95,7 +97,7 @@ body{
     min-height: 100%;
 }
 
-@media (max-width:1750px){
+@media (max-width:1790px){
 
 .qacon{
     display:grid;
@@ -114,7 +116,7 @@ body{
 }
 
 
-@media (max-width:1250px){
+@media (max-width:1295.5px){
 
 .qacon{
     display:grid;
@@ -140,7 +142,7 @@ body{
 }
 .qafooter{
     min-height:73px;
-    border:1px solid rgba(0,0,0,.3);
+    border:1px solid rgba(0,0,0,.15);
     border-bottom-left-radius:8px;
     border-bottom-right-radius:8px;
     margin-bottom:10px;
@@ -152,7 +154,7 @@ body{
     align-items:center;
     justify-content:center;
     max-height:110px;
-    border:1px solid rgba(0,0,0,.3);
+    border:1px solid rgba(0,0,0,.15);
     border-bottom:none;
 }
 
@@ -203,10 +205,17 @@ body{
 
 
 @media(max-width:780px){
-    
-.qacon{
- 	grid-template-columns: repeat(1,1fr);
+ .qacon{
+  grid-template-columns: repeat(1,1fr);
+ }
+ .qawrapper{
+  width:100%;
+ }
 }
 
+@media(max-width:550px){
+ .qawrapper{
+  width:190px;
+ }
 
 }

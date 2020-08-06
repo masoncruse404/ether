@@ -25,7 +25,7 @@ SECRET_KEY = '(far_5vckzl80((n)v-byix&*r4lhg^j=0+!q)zbjlv5_k7wq='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'core',
     'analytics',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
 AUTH_USER_MODEL = 'core.CustomUser'
 FORCE_INACTIVE_USER_SESSION = False
 FORCE_SESSION_TO_ONE = False

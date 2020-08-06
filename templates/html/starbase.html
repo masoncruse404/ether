@@ -46,9 +46,11 @@
 {% include 'includes/audioplayer.html' %}
 {% include 'includes/newfolderpopup.html' %}
 {% include 'includes/sharepopup.html' %}
+{% include 'includes/sharefolderpopup.html' %}
 {% include 'includes/audiopopup.html' %}
 {% include 'includes/renamepopup.html' %}
 {% include 'includes/renamefolderpopup.html' %}
+
 {% include 'includes/showImgContainer.html' %}
 
 <div class="cover"></div>
@@ -66,26 +68,12 @@
     </div>
     
     <div class="nav-ul">
-       <a id="mydrivelink" class="nav-link {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
-       {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
-       {% if request.resolver_match.url_name == "share" %}active{% endif %}
-       {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}"   
-        {% if request.resolver_match.url_name == "rename" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "users" %}active{% endif %}"
-        {% if request.resolver_match.url_name == "file" %}active{% endif %}"      
+       <a id="mydrivelink" class="nav-link {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}"
+        
       
         href="/uploads/mydrive/" >
             <div id="mydrivenavitem" class="nav-item {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
-            {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
-            {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
-            {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}
-            {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}
-            {% if request.resolver_match.url_name == "share" %}active{% endif %}
-            {% if request.resolver_match.url_name == "rename" %}active{% endif %}
-            {% if request.resolver_match.url_name == "users" %}active{% endif %}
-            {% if request.resolver_match.url_name == "file" %}active{% endif %}
+
             ">
                 <div class="icon-wrapper">
                     <i class="far fa-hdd navicon"></i>
@@ -110,20 +98,27 @@
             </div>
         </a>
         <a class="nav-link {% if request.resolver_match.url_name == "starred" %}active{% endif %}
+         {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
          {% if request.resolver_match.url_name == "star" %}active{% endif %}
          {% if request.resolver_match.url_name == "removestar" %}active{% endif %}
          {% if request.resolver_match.url_name == "starfolder" %}active{% endif %} 
          {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
-         {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}"
-         {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}"
+         {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
+                       
+
+         {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
+
+         {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}""
          href="/starred/" >
             <div class="nav-item {% if request.resolver_match.url_name == "starred" %}active{% endif %} 
+              {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
              {% if request.resolver_match.url_name == "star" %}active{% endif %} 
              {% if request.resolver_match.url_name == "removestar" %}active{% endif %} 
              {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
              {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
              {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}
-               {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}">
+               {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
+               {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}"">
                 <div class="icon-wrapper">
                     <i class="far fa-star navicon"></i>
                 </div>
@@ -210,9 +205,11 @@
           <div id="circle">
             <i class="fas fa-paperclip fa-lg"></i>
           </div>
+          <a href="#" id="subhshare">
           <div id="circle">
             <i class="fas fa-users fa-lg"></i>
           </div>
+          </a>
           <a href="#" id="subheye" onclick="showImgH();">
             <div id="circle">
               <i class="fas fa-eye fa-lg"></i>
@@ -233,7 +230,7 @@
    </div>
    <div class="vert"></div>
    <div class="sub-icon-d-wrapper">
-       <a href="/uploads/mydrivetable/">
+       <a href="/uploads/mydrivestartable/">
           <div id="circle1">
           <i class="fas fa-table fa-lg"></i>
           </div>
