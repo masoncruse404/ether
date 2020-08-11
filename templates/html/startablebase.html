@@ -113,13 +113,15 @@
         <a class="nav-link {% if request.resolver_match.url_name == "starred" %}active{% endif %}
         {% if request.resolver_match.url_name == "renamefolderstartable" %}active{% endif %}
          {% if request.resolver_match.url_name == "star" %}active{% endif %}
-         {% if request.resolver_match.url_name == "removestar" %}active{% endif %}
+         {% if request.resolver_match.url_name == "removestartable" %}active{% endif %}
          {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
          {% if request.resolver_match.url_name == "copystarfiletable" %}active{% endif %}
          {% if request.resolver_match.url_name == "mydrivestartable" %}active{% endif %}
          {% if request.resolver_match.url_name == "startablefolder" %}active{% endif %}
          {% if request.resolver_match.url_name == "renamestartable" %}active{% endif %}
          {% if request.resolver_match.url_name == "starfolder" %}active{% endif %} 
+         {% if request.resolver_match.url_name == "startable" %}active{% endif %}
+         {% if request.resolver_match.url_name == "startablefolder" %}active{% endif %}  
          {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
          {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
          {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
@@ -128,15 +130,18 @@
          href="/starred/" >
             <div class="nav-item {% if request.resolver_match.url_name == "starred" %}active{% endif %} 
              {% if request.resolver_match.url_name == "star" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "removestartable" %}active{% endif %}
              {% if request.resolver_match.url_name == "renamefolderstartable" %}active{% endif %}
              {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
              {% if request.resolver_match.url_name == "startablefolder" %}active{% endif %}
+             {% if request.resolver_match.url_name == "startable" %}active{% endif %}
+             {% if request.resolver_match.url_name == "startablefolder" %}active{% endif %}  
              {% if request.resolver_match.url_name == "renamestartable" %}active{% endif %}
              {% if request.resolver_match.url_name == "copystarfiletable" %}active{% endif %}
              {% if request.resolver_match.url_name == "mydrivestartable" %}active{% endif %}
-             {% if request.resolver_match.url_name == "removestar" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "removestarfolder" %}active{% endif %} 
              {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
-             {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
+             {% if request.resolver_match.url_name == "renamestartable" %}active{% endif %}
              {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}
               {% if request.resolver_match.url_name == "copystarfoldertable" %}active{% endif %}
                {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}

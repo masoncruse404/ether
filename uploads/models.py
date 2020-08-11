@@ -41,6 +41,8 @@ class File(models.Model):
     uploaded_at = models.DateTimeField(default=timezone.now())
     modified = models.DateTimeField(default=timezone.now())
 
+    def __str__(self):
+        return self.name
 
 
 
@@ -57,6 +59,9 @@ class Folder(models.Model):
     #Genesis ID ROOT FOLDER ID
     trash = models.BooleanField(default=False)
     gid = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 class Photo(models.Model):
     title = models.CharField(max_length=255, blank=True)

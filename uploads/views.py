@@ -512,6 +512,9 @@ def startable(request, slug, pk):
 
     #get context
     context = getcontextstar(pro)
+    successmsg = f.name + ' is starred'
+    context.update({'successmsg':successmsg})
+    context.update({'successalert':1})
     return render(request, 'uploads/my-drive-table-star.html', context)
 
 @login_required(login_url='/users/login/')

@@ -102,23 +102,21 @@
          {% if request.resolver_match.url_name == "star" %}active{% endif %}
          {% if request.resolver_match.url_name == "removestar" %}active{% endif %}
          {% if request.resolver_match.url_name == "starfolder" %}active{% endif %} 
+         
          {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
          {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
-                       
-
          {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
-
          {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}""
          href="/starred/" >
             <div class="nav-item {% if request.resolver_match.url_name == "starred" %}active{% endif %} 
-              {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
+             {% if request.resolver_match.url_name == "copystarfolder" %}active{% endif %}
              {% if request.resolver_match.url_name == "star" %}active{% endif %} 
              {% if request.resolver_match.url_name == "removestar" %}active{% endif %} 
              {% if request.resolver_match.url_name == "removefolderstar" %}active{% endif %}
              {% if request.resolver_match.url_name == "renamestar" %}active{% endif %}
              {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}
-               {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
-               {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}"">
+             {% if request.resolver_match.url_name == "copystarfile" %}active{% endif %}
+             {% if request.resolver_match.url_name == "renamefolderstar" %}active{% endif %}"">
                 <div class="icon-wrapper">
                     <i class="far fa-star navicon"></i>
                 </div>

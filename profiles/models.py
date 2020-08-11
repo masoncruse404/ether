@@ -3,11 +3,12 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from core.models import CustomUser
+from django.conf import settings
 from django.utils import timezone
 import os
 
 MAX_STORAGE = 15000000
-HOMEDIR = os.environ['HOME']
+BASE_DIR = settings.BASE_DIR
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -33,13 +34,14 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         pro = Profile.objects.create(user=instance)
-        path = '/home/mason/projects/ether/static/accounts/'
+        path = BASE_DIR+'/media/accounts/'
+
+        if not os.path.exists(path):
+           os.mkdir(path)
+
         os.chdir(path)
         os.mkdir(path + instance.email)
         pro.save()
-
-
-        print("CREATED")
 
 @receiver(post_save, sender=CustomUser)
 def save_user_profile(sender, instance, **kwargs):

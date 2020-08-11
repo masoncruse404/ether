@@ -60,7 +60,10 @@ $("#searchdown1").click(function() {
 
 //clears the input when the x icon is clicked
 function searchclear(){
+    //clear old input
     document.getElementById("searchuinput").value = '';
+    //get ready for new input
+    $("#searchuinput").focus()
 }
 //when x is clicked clears the value of the input 
 //removes search results
