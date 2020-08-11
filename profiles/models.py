@@ -37,7 +37,7 @@ def create_user_profile(sender, instance, created, **kwargs):
         path = BASE_DIR+'/media/accounts/'
 
         if not os.path.exists(path):
-           os.mkdir(path)
+           os.makedirs(path)
 
         os.chdir(path)
         os.mkdir(path + instance.email)
