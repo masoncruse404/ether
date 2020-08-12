@@ -1,0 +1,120 @@
+.filecontainer-wrapper{
+    z-index:-1;
+    margin:.65rem .65rem;
+}
+.file-content{
+    z-index:-1;
+    max-width:210px;
+    max-height:210px;
+    flex:0 0 220px;
+    border-bottom:none;
+}
+.imgcon{
+    z-index:-1;
+    max-width:240px;
+    max-height:185px;
+}
+.file-content img{
+     z-index:-1;
+    min-height:100%;
+    min-width:100%;
+}
+
+.file-info{
+    z-index:-1;
+    font-family:arial;
+    
+    max-height:55px;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+}
+#file-image{
+}
+.filecontainer-filename{
+    font-family:'Roboto', arial;
+    margin-left:1.3rem;
+}
+.fileflex{
+    display:flex;
+    flex-flow:row wrap;
+
+    justify-content:flex-start;
+
+}
+.file-icon{
+    font-size:1.15em;
+}
+#img{
+    min-height:100%;
+    min-width:100%;
+}
+.container{
+    display:flex;
+    flex-wrap:wrap;
+}
+.icon-circle{
+    display:flex;
+    height:32px;
+    width:32px;
+    background-color:white;
+    justify-content:center;
+    align-items:center;
+    margin-left:1.2rem;
+    font-size:1.2em;
+}
+#img{
+    z-index:10;
+}
+#grid{
+    z-index:-1;
+
+}
+.file{
+  
+    flex:0 1 calc(16% -8px);
+}
+@media (max-width:1200px){
+.filecontainer-wrapper{
+    z-index:-1;
+    margin:.5rem .5rem;
+}
+.file{
+    max-width:320px;
+    max-height:100px;
+    flex-basis:220px;
+}
+}
+
+.filesflex{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.mainwrapper{
+    display:flex;
+    min-height:1200px;
+    flex-direction:column;
+}
+.todaywrapper{
+    display:flex;
+    min-height:400px;
+}
+.afile{
+
+}
+.fileflex{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+}
+.fname{
+    font-family:'Roboto', arial;
+    font-size:.9em;
+    font-weight:600;
+    color:rgba(0,0,0,.8);
+}
+#fileicon{
+    font-size:1em;
+}
+

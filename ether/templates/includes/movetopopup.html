@@ -1,0 +1,52 @@
+
+
+
+<div id="movetopopupwrap">
+    <div id="movetoheader">
+        <div class="movetoheaderflex">
+            <div id="movetotitle"><span>Drive</span></div>
+            <div class="movetoicon" onclick="movetopopupclose()">
+                <i  id="movetoclose" class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="movetorowwrapper">
+
+        {% if all_folder_list %}
+<div>
+                        <form id="movetoform" action="#">
+
+
+            {% for folder in all_folder_list %}
+        <div id="{{folder.id}}"class="movetofolderrow" onclick='movetorowclick(this.id)'>
+        <div class="movetorowicon">
+            <i class="far fa-folder"></i>
+        </div>
+        <div class="movetofoldername">
+            {{folder.name}}
+        </div>
+        <div class="movetofolderrowarrow flexcenter">
+            <div class="chevwrap flexcenter">
+            <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        </div>
+            {% endfor %}
+            
+
+{% endif %}
+
+
+    </div>
+    <div class="movetofooter flexcenter">
+        <div class="movetofooterflex">
+            <button type="submit" class="movetobtn flexcenter">
+
+                MOVE
+            </button>
+        </div>
+       
+    </div>
+     </form>
+</div>

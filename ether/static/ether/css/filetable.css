@@ -1,0 +1,81 @@
+#filetable{
+    margin-top:20px;
+    width:98%;
+    margin-bottom:20px;
+     
+
+}
+/*
+table {
+    border:1px solid grey;
+   //Any radius you want. It will work perfectly!
+    border-spacing: -1
+}
+td {
+    padding:0px;
+
+}
+
+
+
+table tr:first-child td, table tr:not(:last-child) td {
+        border-bottom:1px solid grey;
+
+}
+
+table thead tr:first-child  td:first-child {
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    border-top-left-radius: 2px;
+}
+
+
+th span{
+        font-family:'roboto',arial;
+
+}
+
+*/
+
+#filetableheader{
+    border-top-left-radius: 5px;
+    color:rgba(0,0,0,.7825);
+    border:1px solid #eaf1fe;
+    height:60px;
+    background-color:#eaf1fe;
+    font-family:'roboto',arial;
+
+
+}
+#fntableheader span{
+    margin-left:20px;
+}
+
+#filetable td{
+    padding: 0;
+    margin: 0;
+    color:rgba(0,0,0,.8);
+    font-family:'Roboto',arial;
+    font-size:.7em;
+}
+#filetable td:first-child{
+        padding-left: 20px;
+
+}
+
+.filetablerow:hover{
+    background-color:rgba(0,0,0,.05);
+}
+.borderbottom{
+
+    border-bottom:1px solid rgba(0,0,0,.15);
+    padding:0 0;
+}
+
+.taleft{
+    text-align:left;
+}
+
+.fntb{
+padding-left:20px;
+}

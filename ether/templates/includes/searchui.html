@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="searchui.css">
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+<div id="searchui">
+    <div class="searchrow">
+        <div class="searchiconwrapper">
+            <div class="searchiconhover">
+            <i id="searchicon" class="fas fa-search searchicon"></i>
+            </div>
+        </div>
+        <div class="searchinputwrapper">
+            <input id="searchuinput" type="text" name='seachuiq' class="searchinput" value='Search Drive' autocomplete="off">
+        </div>
+        <div id="searchdown" class="searchiconwrapper">
+            <div id='sclosehover' class="searchiconhover" onclick="searchclear()">
+            <i id='sclose' class="fas fa-times searchicon"></i>
+            </div>
+        </div>
+        <div id="searchdown1" class="searchiconwrapper">
+             <div class="searchiconhover">
+            <i id='sdown' class="fas fa-sort-down searchicon"></i>
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="searchtypewrapper">
+    <div class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="far fa-file-pdf searchicon red"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>PDFs</span>
+        </div>
+    </div>
+
+    <div class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="fas fa-file-word searchicon blue"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>Documents</span>
+        </div>
+    </div>
+
+    <div class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="far fa-file-excel searchicon green"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>Spreadsheets</span>
+        </div>
+    </div>
+
+    <div class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="far fa-file-powerpoint searchicon orange"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>Presentations</span>
+        </div>
+    </div>
+
+    <div id="searchimagerow" class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="fas fa-image searchicon red"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>Photos & images</span>
+        </div>
+    </div>
+
+    <div class="searchtyperow">
+        <div class="searchtypeiconhover">
+            <i class="fas fa-file-video searchicon red"></i>
+        </div>
+        <div class="searchtypetext">
+            <span>Videos</span>
+        </div>
+    </div>
+
+
+    <div class="searchfooter">
+        <span>More search tools</span>
+    </div>
+
+
+    </div>
+    <div id="search-results-wrapper">
+  
+
+    </div>
+
+</div>

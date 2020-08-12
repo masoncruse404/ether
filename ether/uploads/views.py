@@ -1718,7 +1718,7 @@ def dirwalk(pro, pk, dst):
         #update the path of the files in the folder
         for f in files:
             f.path = pf.path + '/' + f.name
-            f.path = f.path.replace('/home/mason/projects/ether','')
+            f.path = f.path.replace(BASE_DIR,'')
             f.file.name = f.path
             f.save()
             print(f.path)
@@ -2080,7 +2080,7 @@ def download(request, slug, pk):
 
     if(f.path):
 
-        path = '/home/mason/projects/ether/'+f.file.name
+        path = BASE_DIR+f.file.name
         print('fromdownloaditem'+path)
         f0 = open(path, 'rb')
         myfile = DjangoFile(f0)
@@ -2141,7 +2141,7 @@ class ProgressBarUploadView(View):
             File.file_type = ftype;
             File.owner = pro
             fpath = File.file.path
-            fpath = fpath.replace('/home/mason/projects/ether/','')
+            fpath = fpath.replace(BASE_DIR,'')
             File.file.name = fpath
             print('fname ',File.file.name)
             File.size = size
@@ -2149,7 +2149,7 @@ class ProgressBarUploadView(View):
             pro.storage += size
             pro.save()
             print(File)
-            data = {'is_valid': True, 'name': File.fpath, 'url': File.file.name,'fileid':File.id}
+            data = {'is_valid': True, 'name': File.name, 'url': File.file.name,'fileid':File.id}
         else:
             print('is_valid false')
             data = {'is_valid': False}
@@ -2217,67 +2217,6 @@ class ProgressBarUploadSubView(View):
             data = {'is_valid': False}
         return JsonResponse(data)
 
-class ProgressBarUploadSubViewOld(View):
-    def get(self, request):
-        photos_list = File.objects.all()
-        return render(self.request, 'uploads/my-drive.html', {'photos': photos_list})
-
-    def post(self, request):
-        print('here');
-        form = PhotoForm(self.request.POST, self.request.FILES)
-        user = request.user
-        pro = Profile.objects.get(user=user)
-        form.instance.owner = pro
-        if 'fid' in request.session:
-            pk = request.session['fid']
-            pf = Folder.objects.get(id=pk)
-            pathname = pf.path
-        else:
-            pk = None
-            pf = None
-            pathname = ''
-        form.instance.path = pathname
-        if form.is_valid():
-            File = form.save()
-            name = File.file.name
-            name = name.split('/')[-1]
-            File.name = name
-            print('parent folder path ',pf.path)
-            fpath = File.file.path
-            fpath = fpath.replace(BASE_DIR,'')
-            File.file.name = '/' + fpath
-            print('filename ',File.file.name)
-            print('money time ',pf.path)
-            print('heee ',form)
-            print('name= ',name)
-        
-            pf = Folder.objects.get(id=pk)
-            pf.folderfiles.add(File)
-            print('pathhhh ',pf.path+'/'+name)
-            path = pf.path+'/'+name
-            path = path.replace(BASE_DIR,'')
-            ftype = File.file.name.split('.')[-1]
-            File.file_type = ftype
-            File.owner = pro
-
-            print('new subfile path = ',path)
-            oldpath = path
-            File.file.name = path
-            if os.path.getsize(path):
-                size = os.path.getsize(path)
-            else:
-                size = 0  
-            File.size = size
-            #File.path =  pf.path+File.name
-            File.save()
-            pro.storage += size
-            pro.save()
-            
-            print(File)
-            data = {'is_valid': True, 'name': File.name, 'url': oldpath, 'fileid':File.id}
-        else:
-            data = {'is_valid': False}
-        return JsonResponse(data)
 
 
 class DragAndDropUploadView(View):

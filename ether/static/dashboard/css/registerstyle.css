@@ -1,0 +1,324 @@
+body{
+	background-color:rgb(78, 115, 223);
+background-image:linear-gradient(rgb(78, 115, 223) 10%, rgb(34, 74, 190) 100%);
+	background:linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+	font-family:arial;
+}
+
+.registerwrapper{
+
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	
+	height:100%;
+	width: 100%;
+
+}
+#id_email{
+	color:grey;
+}
+.wrapper{
+	display:flex;
+	
+}
+
+.registerimg{
+	display:flex;
+	min-height:603px;
+
+}
+.registerfacebook span{
+		font-size:.9em;	
+		color:white;
+}
+.registergoogle span{
+	font-size:.9em;	
+	color:white;
+}
+.registerbtn span{
+	font-size:.9em;
+	color:white;
+}
+input[type="text"]{
+	padding-left: 10px;
+	color:grey;
+}
+.registerimg img{
+	  display: flex;
+   width: 100%;
+   max-width: 500px; /*actual image width*/
+   height:603px; /* maintain aspect ratio*/
+   margin: 0 0;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+.registerright{
+	max-width:900px;
+	min-width:0px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	background:#fff;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0;
+}
+
+.registerbtn{
+	height:45px;
+	flex:1;
+	background-color: #4373df;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px; 
+	min-width:0px;
+
+}
+
+.registerfacebook{
+	height:45px;
+	flex:1;
+	background-color: #3b5989;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px; 
+	  min-width:0;
+
+}
+
+.registergoogle{
+	height:45px;
+	flex:1;
+	background-color: #EA4335;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px;
+	  min-width:0;
+
+}
+
+.registerinput{
+	border-radius:10px; 
+	height:50px;
+	outline: none;
+	border:1px solid #cdcdcd;
+	  min-width:0;
+
+	flex:1;
+}
+.registerfirstinput{
+	margin-right:10px;
+	min-width:0px;
+}
+
+.registerinfo{
+	height:100%;
+	width:100%;
+	margin:100px 80px 0 80px;
+	display:flex;
+	min-width:0px;
+	flex-direction: column;
+}
+
+.registerinfo div{
+	margin:8px 0;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	min-width:0px;
+}
+
+.registerinfo div input{
+	display:flex;
+	min-width:0px;
+}
+
+.registeremail{
+	flex:1;
+	border-radius:10px; 
+	height:50px;
+	outline: none;
+	border:1px solid #cdcdcd;
+	min-width:0px;
+}
+#registerfacebook{
+	margin-left:10px;
+}
+.smallscreeninputstyle{
+		border-radius:10px; 
+	height:50px;
+	outline: none;
+	border:1px solid #cdcdcd;
+	  min-width:0;
+	flex:1;
+}
+.headerwrap{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	font-size:1.35em;
+	color:#36454f;
+	margin-bottom:10px;
+
+}
+.passwordsmallscreen{
+	display:none;
+}
+
+.lastnamesmallscreen{
+	display: none;
+	position: absolute;
+}
+
+#inputsmallscreenpassword{
+	display:none;
+}
+
+#inputsmallscreenlastname{
+	display:none;
+}
+
+.registerfacebooksmallscreen{
+	display:none;
+}
+	#registerfacebookbtnsmallscreen{
+		display: none;
+	}
+#registersocial{
+	margin-bottom: 0;
+}
+
+.forgotwrap{
+	margin:0 0;
+}
+
+.loginwrap{
+	margin:0 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+#forgotwrap a{
+	color:#4e73df;
+		font-size:.8em;
+}
+
+#forgotwrap a:hover{
+		color: #3b5989;
+		text-decoration: underline;
+
+}
+
+#loginwrap a{
+	color:#4e73df;
+		font-size:.8em;
+}
+
+#loginwrap a:hover{
+		color: #3b5989;
+		text-decoration: underline;
+
+}
+#line{
+	width:100%;
+	 border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+#line1{
+	width:100%;
+	margin:0;
+	 border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+@media(max-width:1000px){
+	.registerfacebook span{
+		font-size:.7em;	
+		color:white;
+}
+.registergoogle span{
+	font-size:.7em;	
+	color:white;
+}
+.registerbtn span{
+	font-size:.7em;
+	color:white;
+}
+}
+@media(max-width:700px){
+	.registerimg img{
+		display: none;
+	}
+	.registerright{
+		border-top-left-radius:5px;
+		border-bottom-left-radius: 5px;
+	}
+}
+
+@media(max-width: 500px){
+	.registerinput{
+		margin-right:0;
+
+	}
+	#lastname{
+		display:none;
+	}
+	#passwordcheck{
+		display:none;
+	}
+	#registerfacebook{
+		display:none;
+	}
+
+.passwordsmallscreen{
+	display:block;
+}
+.registerfacebooksmallscreen{
+	display:block;
+}
+	#registerfacebookbtnsmallscreen{
+		display: flex;
+	}
+
+
+.lastnamesmallscreen{
+	display: block;
+	position: relative;
+}
+
+#inputsmallscreenpassword{
+	display:block;
+}
+
+#inputsmallscreenlastname{
+	display:block;
+}
+	#line{
+		display: none;
+	}
+	#line1{
+		display: none;
+	}
+
+	.wrapper{
+		border-radius: 5px;
+	}
+	
+.registerinfo div{
+	margin:3px 0;
+}
+.headerwrap{
+	padding-bottom:10px;
+}
+}

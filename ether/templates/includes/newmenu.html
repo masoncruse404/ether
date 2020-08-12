@@ -1,0 +1,51 @@
+
+  {% load static %}
+  <div class="nav">
+    <div class="nav-logo-wrapper">
+        <img class="logo" src="{% static "images/logo.png" %}">
+        <span class="logo-txt">Ether</span>
+    </div>
+<div class="new-popup-wrapper" id="new-popup">
+      <div class="new-popup-item" id='newfolder' onclick='newFolder()'>
+          <div class="new-icon-wrapper"><i class="far fa-folder"></i></div>
+          <span>Folder<span>
+      </div>
+         <div class="myhr1"></div>
+      <div class="new-popup-item" id="fileuploaditem">
+           <div class="folderupload-wrapper">
+            {% include 'includes/uploadbtnfrm.html' %}  
+          <label id="fileupload">
+          <i id='fileuploadicon' class="far fa-folder-open"></i>
+          File upload
+          </label>
+          </div>
+     </div>
+      <div class="new-popup-item" id='formitem'>
+          <div class="folderupload-wrapper">
+          <form id="folderuploadform" method="post" action='/uploads/handle_upload/' enctype='multipart/form-data' onsubmit="updatePieFact();" onchange="$(this).submit();">
+          <label id="folderupload">
+          <i id='folderuploadicon' class="far fa-folder-open"></i>
+          Folder upload
+          </label>
+
+
+<form action="/uploads/handle_upload/" method="POST" enctype='multipart/    form-data' name='folderform'>
+ <input id='filepicker' class='folderuinput' type='file' name='file_field' webkitdirectory            >
+     </form>
+          </div>
+
+     </div>
+      <div class="myhr"></div>
+      <div class="new-popup-item">
+          <div class="new-icon-wrapper"><i class="far fa-file-word"></i></div>
+          <span>Ether Doc<span>
+     </div>
+      <div class="new-popup-item">
+          <div class="new-icon-wrapper"><i class="far fa-file-excel"></i></div>
+          <span>Ether Sheets<span>
+     </div>
+      <div class="new-popup-item">
+          <div class="new-icon-wrapper"><i class="fab fa-slideshare"></i></div>
+          <span>Ether Slides<span>
+     </div>
+  </div>

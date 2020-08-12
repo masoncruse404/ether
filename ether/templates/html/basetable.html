@@ -1,0 +1,288 @@
+<html>
+<head>
+{% load static %}
+
+{% block js %}
+{% endblock %}
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.5.0/css/all.css” integrity=“sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU” crossorigin=“anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="{% static "ether/css/base.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/menu-style.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/userinfo.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/filecontainer.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/newfolder.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/contextmenu.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/searchui.css" %}">
+<link rel="stylesheet" href="{% static "core/css/alerts.css" %}">  
+<link rel="stylesheet" href="{% static "ether/css/sharepopupstyle.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/videoplayer.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/progressbar.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/audio.css" %}">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static "ether/js/contextmenutable.js"%}"></script>
+<script src="{% static "ether/js/fileupload.js"%}"></script>
+<script src="{% static "ether/js/findfile.js"%}"></script>
+
+{% block link %}
+{% endblock %}
+</head>
+<body>
+
+{% if alert %}
+ {% include 'includes/warning.html' %}
+{% endif %}
+
+{% if successalert %}
+ {% include 'includes/success.html' %}
+{% endif %}
+
+{% include 'includes/audioplayer.html' %}
+{% include 'includes/newfolderpopup.html' %}
+{% include 'includes/sharepopup.html' %}
+{% include 'includes/audiopopup.html' %}
+{% include 'includes/renamepopup.html' %}
+{% include 'includes/renamefolderpopup.html' %}
+{% include 'includes/showImgContainer.html' %}
+
+<div class="cover"></div>
+<div class="page" id="page" >
+ {% include 'includes/newmenu.html' %}
+    <div id="new-btn" class="new-btn-wrapper">
+    <div id="new-btn-txt" class="new-btn">
+        <i id="newplus" class="fas fa-plus"></i>
+        <div class="new-btn-wrap">
+            <span>
+            New
+            </span>
+        </div>
+    </div>
+    </div>
+    
+   <div class="nav-ul">
+       <a id="mydrivelink" class="nav-link {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
+        {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
+        {% if request.resolver_match.url_name == "share" %}active{% endif %}
+        {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
+        {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}
+        {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}   
+        {% if request.resolver_match.url_name == "rename" %}active{% endif %}
+        {% if request.resolver_match.url_name == "users" %}active{% endif %}
+        {% if request.resolver_match.url_name == "file" %}active{% endif %} 
+        {% if request.resolver_match.url_name == "home" %}active{% endif %} 
+                    {% if request.resolver_match.url_name == "removetrashfoldertable" %}active{% endif %}
+
+        {% if request.resolver_match.url_name == "renamefoldertable" %}active{% endif %}      
+        {% if request.resolver_match.url_name == "mydrivetable" %}active{% endif %}      
+        {% if request.resolver_match.url_name == "copyfiletable" %}active{% endif %}
+        {% if request.resolver_match.url_name == "copyfoldertable" %}active{% endif %}            
+        {% if request.resolver_match.url_name == "renametable" %}active{% endif %}      
+        {% if request.resolver_match.url_name == "renamefoldertable" %}active{% endif %}""     
+     
+     
+      
+        href="/uploads/mydrive/" >
+            <div id="mydrivenavitem" class="nav-item {% if request.resolver_match.url_name == "mydrive" %}active{% endif %}
+            {% if request.resolver_match.url_name == "rootfolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "movefolderto" %}active{% endif %}
+            {% if request.resolver_match.url_name == "trashfolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "renamefolder" %}active{% endif %}
+            {% if request.resolver_match.url_name == "share" %}active{% endif %}
+            {% if request.resolver_match.url_name == "rename" %}active{% endif %}
+            {% if request.resolver_match.url_name == "users" %}active{% endif %}
+            {% if request.resolver_match.url_name == "file" %}active{% endif %}
+            {% if request.resolver_match.url_name == "home" %}active{% endif %}
+                        {% if request.resolver_match.url_name == "removetrashfoldertable" %}active{% endif %}
+
+            {% if request.resolver_match.url_name == "renamefoldertable" %}active{% endif %}      
+            {% if request.resolver_match.url_name == "copyfoldertable" %}active{% endif %}            
+            {% if request.resolver_match.url_name == "mydrivetable" %}active{% endif %}
+            {% if request.resolver_match.url_name == "copyfiletable" %}active{% endif %}      
+            {% if request.resolver_match.url_name == "renametable" %}active{% endif %}      
+            {% if request.resolver_match.url_name == "renamefoldertable" %}active{% endif %}""      
+            ">
+                <div class="icon-wrapper">
+                    <i class="far fa-hdd navicon"></i>
+                </div>
+                <span>My Drive</span>
+            </div>
+        </a>
+        <a class="nav-link">
+            <div class="nav-item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-share navicon"></i>
+                </div>
+                <span>Shared with me</span>
+            </div>
+        </a>
+       <a class="nav-link {% if request.resolver_iatch.url_name == "recent" %}active{% endif %}" href="/uploads/recent/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "recent" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="fas fa-clock navicon"></i>
+                </div>
+                <span>Recent</span>
+            </div>
+        </a>
+        <a class="nav-link {% if request.resolver_iatch.url_name == "starred" %}active{% endif %}{% if request.resolver_match.url_name == "star" %}active{% endif %}
+         {% if request.resolver_match.url_name == "removestar" %}active{% endif %}
+         {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}" href="/starred/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "starred" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "star" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "removestar" %}active{% endif %} 
+             {% if request.resolver_match.url_name == "starfolder" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="far fa-star navicon"></i>
+                </div>
+                <span>Starred</span>
+            </div>
+        </a>
+        <a class="nav-link {% if request.resolver_match.url_name == "trash" %}active{% endif %}" href="/trash/" >
+            <div class="nav-item {% if request.resolver_match.url_name == "trash" %}active{% endif %}">
+                <div class="icon-wrapper">
+                    <i class="fas fa-trash navicon"></i>
+                </div>
+                <span>Trash</span>
+            </div>
+        </a>
+        <hr class="nav-hr">
+        <a class="nav-link" id="backups">
+            <div class="nav-item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-upload navicon"></i>
+                </div>
+                <span>Backups</span>
+            </div>
+        </a>
+        <hr class="nav-hr" />
+        <a class="nav-link-nohover">
+            <div class="nav-item nover">
+                <div class="icon-wrapper">
+                    <i class="far fa-hdd navicon"></i>
+                </div>
+                <span>Storage</span>
+            </div>
+        </a>
+     
+<div class="progressbarwrapper">
+<div id="progressbar">
+    <div style="width:{{storage}}"></div>
+</div>
+<div class="progressbartitle">
+  <span>{{storagemb}}MB of 15GB used</span>
+</div>
+<div class="progressbarlink">
+  <a href="#">UPGRADE STORAGE</a>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="headerwrapper">
+  <div class="header">
+      <input id="searchheader" type="text" name='search' class='search'placeholder="&#xF002;    Search Drive" style="font-family:Arial, FontAwesome" />
+      {% include 'includes/searchui.html' %}
+      <div class="header-icon-wrapper">
+          <div id="circle">
+          <i class="far fa-question-circle fa-lg"></i>
+          </div>
+          <div id="cog">
+          <i class="fas fa-cogs fa-lg"></i>
+          </div>
+          <div id="box">
+          <i class="fas fa-th fa-lg"></i>
+          </div>
+      </div>
+      <div class="user-logo-container">
+      <div class="hover" id="user-info-popup">
+      <div class="user-info" onClick='userinfoToggel()'>
+          M
+      </div>
+      </div>
+      </div>
+
+  </div>
+
+  <div class="subheader">
+    {% include 'includes/userinfopopup.html' %}
+   <div id="subheader-h">
+   <div id="subheader-header"> 
+    My Drive
+   </div>
+   </div>
+   <div class="sub">
+   <div class="sub-wrapper">
+    <div class="sub-header-icon-wrapper">
+          <div id="circle">
+            <i class="fas fa-paperclip fa-lg"></i>
+          </div>
+          <a href="#" id="subhshare">
+          <div id="circle">
+            <i class="fas fa-users fa-lg"></i>
+          </div>
+          </a>
+          <a href="#" id="subheye" onclick="showImgH();">
+            <div id="circle">
+              <i class="fas fa-eye fa-lg"></i>
+            </div>
+          </a>
+          <a href='#' id='subhtrash' onclick=function>
+            <div id="circle">
+              <i class="fas fa-trash fa-lg"></i>
+            </div>
+          </a>
+          <div id="circle">
+            <i class="fas fa-ellipsis-v fa-lg"></i>
+          </div>
+  
+    </div>
+   </div>
+
+   </div>
+   <div class="vert"></div>
+   <div class="sub-icon-d-wrapper">
+       <a href="/uploads/mydrive/">
+          <div id="circle1">
+          <i class="fab fab fa-gripfire fa-lg"></i>
+          </div>
+        </a>
+          <div id="circle1">
+          <i class="far fa-question-circle fa-lg"></i>
+          </div>
+        
+   </div>
+  </div>
+  </div>
+
+  <div class="content">
+      {% block content %}
+      {% endblock %}
+
+      {% block content1 %}
+      {% endblock %}
+  </div>
+ </div>
+
+<!-- initially hidden right-click menu -->
+
+<!-- initially hidden right-click menu -->
+    {% include 'includes/filecontexttable.html' %}
+    {% include 'includes/filecontextfoldertable.html' %}
+    {% include 'includes/qacontext.html' %}
+  </body>
+  <script src="{% static 'ether/js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'ether/js/searchui.js' %}"></script>
+  <script src="{% static 'ether/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'ether/js/movetopopup.js' %}"></script>
+  <script src="{% static 'ether/js/share.js' %}"></script>
+
+    {% block javascript %}
+    {% endblock %}
+ 
+
+</html>

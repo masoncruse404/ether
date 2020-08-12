@@ -1,0 +1,124 @@
+/* The alert message box */
+
+#myalert{
+    text-align:center;
+    z-index:9999;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:0;
+    font-family: 'roboto',arial;
+}
+
+.loginalert{
+  display:none;
+}
+#mysuccess{
+    position:absolute;
+    z-index:9999;
+    top:0;
+    width:100%;
+    text-align: center;
+}
+.alertlogin{
+  display:none;
+}
+.alert {
+  width:calc(100%-200px);
+  padding: 12px 16px;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.alert-rounded{
+  border-radius: 4px;
+}
+
+.alert.alert-success {
+  background-color: rgba(227, 253, 235, 1);
+  border-color: rgba(38, 179, 3, 1);
+  color: rgba(60, 118, 61, 1);
+}
+
+.alert-success-dark {
+  background-color:#007E33;
+
+  color: white;
+  border:none;
+}
+
+
+.alert.alert-info {
+  background-color: rgba(217, 237, 247, 1);
+  color: rgba(49, 112, 143, 1);
+  border-color: rgba(126, 182, 193, 1);
+}
+
+
+.alert.alert-warning {
+  background-color: rgba(252, 248, 227, 1);
+  border-color: rgba(177, 161, 129, 1);
+  color: rgba(138, 109, 59, 1);
+}
+
+.alert.alert-danger {
+  background-color: rgba(248, 215, 218, 1);
+  border-color: rgba(220, 53, 69, 1);
+  color: rgba(114, 28, 36,1);
+}
+
+.alert.alert-danger1 {
+  background-color: rgba(220, 53, 69, 1);
+  border-color: rgba(220, 53, 69, 1);
+  color: white;
+}
+
+
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtnsuccess {
+  margin-left: 15px;
+  color: grey;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtnsuccessdark {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* When moving the mouse over the close button */
+.closebtnsuccess:hover {
+  color: black;
+}
+
+.closebtnsuccessdark:hover {
+  color: black;
+}
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}

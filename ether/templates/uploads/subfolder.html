@@ -1,0 +1,230 @@
+{% extends 'html/subase.html' %}
+
+{% load static %} {% block link %} <link rel="stylesheet" href="{% static "ether/css/folders.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/qafilecontainer.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/flexboxgrid.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/fileupload.css" %}">
+<link rel="stylesheet" href="{% static "ether/css/movetopopupstyle.css" %}">
+
+    
+    <script>  
+    $(function(){
+            $("#searchuinput").keyup(function () {
+      var searchq = $("#searchuinput").val();
+      console.log(searchq);
+      $.ajax({
+        type: "POST",
+        url: '/ajax/searchajax/',
+        data: {
+          'searchq': searchq
+        },
+        success: searchSuccess,
+        dataType: 'html'
+        
+
+    });
+    });
+});
+function searchSuccess(data, textStatus, jqXHR){
+      var searchq = $("#searchuinput").val();
+    if(searchq.length === 0){
+
+    $('#search-results-wrapper').css('display','none');
+    $('#searchtypewrapper').css('display','block');
+    }
+    else
+    {
+    $('#search-results-wrapper').css('display','block');
+    $('#searchtypewrapper').css('display','none');
+    }
+    $('#search-results-wrapper').html(data);
+    console.log(data);
+}   
+
+  </script>
+
+    <script>
+        $("#filepicker").change(function(){
+            console.log($(this).val());
+
+
+   $.ajax({
+        url: '/ajax/validate_upload/',
+        data: {
+          'file_field':file_field 
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+        });
+    </script>
+
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'ether/js/movetopopup.js' %}"></script>
+<script src="{% static 'ether/js/findfile.js' %}"></script>
+
+
+<script src="{% static 'ether/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'ether/js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+
+{# PHOTOS PAGE SCRIPTS #}
+<script src="{% static 'uploads/js/progress-bar-upload.js' %}"></script>
+
+
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block content1 %}
+
+    {% if qa_list  %}
+    <div>
+    <div class="qafiles-title">Quick Access</div>
+    <div class='qacon'>
+       
+        {% for image in qa_list %}
+        {% if image.trash == False %}
+        <a href="#" id="q{{image.id}}" class="qafilea" onclick='q(event,this.id)'>
+            <div class='qawrapper'>
+            <div class='qacontent'>
+        {% if image.file %}
+            <img id="qaimg" class="img-{{image.id}}" src="{{ image.file.name }}">
+                {% endif %}
+                {% if 'jpeg' or 'png' or 'jpg' in image.file_type %}
+                    <img id="qaimg" src="{{ image.file.name }}">
+                {% endif %}
+            </div>
+            <div id='qfooterq{{image.id}}'class='qafooter'>
+                <div class='qafooterwrapper'>
+                <div class='qanamewrapper'>
+                    <i id='qaicon' class="far fa-file-image fa-lg icon qaicon"></i>
+                    <span id="qanameq{{image.id}}"class='qaname'>{{ image.name }}</span>
+                </div>
+                <div class='qadate'>
+                    {{ image.modified }}
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+        </a>
+        {% endif %}
+        {% endfor %}
+
+        </div>
+      
+    </div>
+    {% endif %}
+
+ 
+{% if folder_list %}
+<div>
+<div class="folders-title">Folders</div>
+<div class="folders-wrapper">
+            {% for folder in folder_list %}
+            <a  href="{% url  'subfolder' folder.id %}">
+            <div id="foldercontent-{{ folder.id }}" class="foldercontainer">
+                <i id="folder" class="fas fa-folder fa-lg icon"></i>
+                <span>{{folder.name}}</span>
+            </div>
+            </a>
+            {% endfor %}
+</div>
+</div>
+{% endif %}
+
+   {% if image_list %} 
+   <div class="folders-title">Files</div>
+   <div class='flexbox'>
+{% for image in image_list %}
+<div id="f{{image.id}}" class="list-item f-{{image.id}}" onClick='t(this.id)'>
+<a href="#!" class="file">
+    <div id='fcontent-{{image.id}}' class="list-content file-content content{{image.id}} file-content" onclick='t(event, this.id)'>
+        {% if image.file %}
+            {% if 'js' in image.file_type or 'py' in image.file_type  or 'sh' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/code-icon.png' %}">
+            {% elif 'png' in image.file_type or 'jpg' in image.file_type or 'jpeg' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{{ image.file.name }}">
+            {% elif 'html' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/html-icon.png' %}">
+            {% elif 'css' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/css-icon.png' %}">
+            {% elif 'mp3' in image.file_type %}
+          
+            <img id="img" class="img-{{image.id}} audiofile" src="{% static 'images/mp3-icon.png' %}">
+            <div id="audiofile-{{image.id}}" class="audiofilehide">
+            <audio id="audio" class="audio-{{image.id}} " controls>
+            <source id="audiosource-{{image.id}}" src="{{ image.file.name }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
+            {% elif 'docx' in image.file_type or 'doc' in image.file_type %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/docx-icon.png' %}">
+            {% elif 'mp4' in image.file_type or 'mkv' in image.file_type %}
+            <video id="video" controls>
+            <source id="videosource-{{image.id}}" src="{{ image.file.name }}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            {% else %}
+            <img id="img" class="img-{{image.id}}" src="{% static 'images/question-icon.png' %}">
+            {% endif %}
+
+        {% endif %}
+        
+      <div id="file-infof{{image.id}}"class="list-footer"onclick='t(event, this.id)'>
+          <div id="file-infof{{image.id}}" class='list-icon-wrapper'> 
+            <div class='file-icon-circle'>
+            <i id='file-icon' class="far fa-hdd file-icon"></i>
+            </div>
+           </div>
+
+        <div class='list-footer-name'>
+            <span id="filefooter{{image.id}}" class="filenamespan">{{ image.name }}</span>
+        </div>
+      </div>
+    </div>
+</a>
+  </div>
+  {% endfor %}
+{% else %}
+ <div class="files-title">Files</div>
+<div class='flexbox'>
+</div>
+{% endif %}
+    
+  
+  {% include 'includes/movetopopup.html' %}
+
+    {% if not image_list and not qa_list and not folder_list %}
+    
+    {% endif %}
+</div>
+{% include 'includes/fileupload/fileupload.html' %}      
+{% endblock %}
+
+ {% include 'includes/filecontextfolder.html' %}
+
+{% block js %}
+    <script>
+function searchclear(){
+    document.getElementById("searchuinput").value = '';
+}
+    </script>
+
+<script src="{% static "ether/js/fileupload.js" %}"></script>
+<script src="{% static "ether/js/movetopopup.js" %}"></script>
+<script src="{% static "ether/js/showimages.js" %}"></script>
+
+
+
+
+{% endblock %}

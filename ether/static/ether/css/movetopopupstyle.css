@@ -1,0 +1,116 @@
+#movetopopupwrap{
+    position: sticky;
+    display: none;
+    height:300px;
+    width:350px;
+    -webkit-box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 10px #ccc;
+    border:1px solid rgba(0,0,0,.2);
+    flex-direction: column;
+    left:0;
+    bottom:0;
+    background-color:#fff;
+    z-index:9999;
+}
+#movetoheader{
+    background-color:rgba(0,0,0,.025);
+}
+.movetoheaderflex{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+}
+.movetoicon{
+    height:50px;
+    width:50px;
+    margin-left:auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#movetotitle{
+    margin-left:15px;
+}
+.movetofolderrow{
+cursor:pointer;
+padding: 5 0 5 0;
+display:flex;
+justify-content: center;
+align-items: center;
+}
+.flexcenter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.movetofolderrow:hover{
+    background-color: rgba(0,0,0,.1);
+}
+.movetofolderrow:hover .chevwrap{
+    display:block;
+}
+.movetofolderrowarrow{
+    margin-left:auto;
+    height:30px;
+    margin-right: 15px;
+}
+.chevwrap{
+    display:none;
+}
+.movetorowicon{
+    margin-left: 15px;
+    margin-right:15px;
+}
+.movetofooter{
+    background-color: white;
+    z-index:30;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height:60px;
+    border-top:1px solid rgba(0,0,0,.2);
+}
+.movetofooterflex{
+    margin-left:auto;
+    margin-right:30px;
+}
+.movetobtn{
+    background-color:#4285f4;
+    color:white;
+    width:68px;
+    height:30px;
+    border-radius: 2.5px;
+    font-family:'roboto',arial;
+    font-size:12px;
+    border:none;
+}
+.movetobtn:hover{
+    background-color:#0064c8;
+
+}
+#movetotitle span{
+    color:rgba(0,0,0,.6);
+    font-weight:bold;
+    font-family: 'roboto',arial;
+}
+#movetoclose{
+    color:rgba(0,0,0,.6);
+}
+
+.movetoactive{
+    background-color:#4285f4;
+    color:white;
+    padding: 5 0 5 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.disblock{
+    display:block;
+}
+.movetorowwrapper{
+    height:187.5px;
+     overflow-x: auto;
+}

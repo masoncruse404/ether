@@ -1,0 +1,27 @@
+{% if files.count > 0 %}
+
+{% for fi in files|slice:":8" %}
+<div id="result-{{fi.id}}" class="search-results result-{{fi.id}}" onclick="findfile(this.id)">
+<div class="searchresultsiconwrapper">
+            <i class="fas fa-file-video searchicon red"></i>
+        </div>
+        <div class="searchresultsnamewrapper">
+            <div class="searchresultsname">
+                <span>{{ fi.name }}</span>
+            </div>
+            <div class="searchresultsauthor">
+                <span>{{ fi.owner.user.email}}</span>
+            </div>
+        </div>
+        <div class="searchresultsdatewrapper">
+            <span>{{ fi.modified }}</span>
+        </div>
+</div>
+</div>
+{% endfor %}
+
+{% else %}
+
+<li style="padding-top:20px"></li>
+
+{% endif %}

@@ -1,0 +1,49 @@
+#progressbar {
+  background-color: rgba(0,0,0,.15);
+ 
+  /* (height of inner div) / 2 + padding */
+width:150px;
+
+}
+.progressbarwrapper{
+  width:256px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  margin-top:10px;
+  margin-left:23px;
+ 
+}
+#progressbar>div {
+  background-color: #1967D2;
+  
+  /* Adjust with JavaScript */
+  height: 4px;
+  
+}
+.progressbartitle{
+  margin-top:7.5px;
+  font-size:.8em;
+  font-family: 'Roboto', Arial;
+  width:150px;
+  color:rgba(0,0,0,.7);
+}
+
+.progressbartitle span{
+  width:150px;
+}
+
+.progressbarlink{
+  width:65%;
+  margin-top:.5rem;
+  width:150px;
+}
+
+.progressbarlink a{
+   color:#1967D2;
+   width:150px;
+   font-size:.75em;
+   font-family: 'Roboto', Arial;
+   -webkit-text-stroke:.15px;
+}

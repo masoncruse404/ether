@@ -1,0 +1,652 @@
+<html>
+ <head>
+        {% load static %}   
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "dashboard/css/style.css" %}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+ </head>
+
+ <body>
+     <div class="wrapper">
+         <nav class="sidenavsmall">
+              <div class="navlogo">
+                <a href="#"><i class="fas fa-smile fa-2x"></i></i></a>
+            </div>
+            <div class="hrflex">
+            <hr />
+            </div>
+            <div class="navdashboardsmall">
+                <a href="#"><i class="fa fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="hrflex">
+            <hr />
+            </div>
+            <ul>
+                        <li class="headersmall-menu">
+                            <span>INTERFACE</span>
+                        </li>
+                        <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-tachometer-alt iconhover1"></i>
+                                <span class="menu-text">Dashboard</span>
+                                </div>
+                            </a>
+                                <div class="sidebar-submenu shadow">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                           <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-shopping-cart first"></i>
+                                <span class="menu-text">Utilities</span>
+                                </div>
+                            </a>
+                            <div class="sidebar-submenu shadow">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Util 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Util 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Util 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                           
+                         </li>  
+                          <div class="hrflex">
+                          <hr />
+                          </div>
+                          <li class="headersmall-menu">
+                            <span>ADDONS</span>
+                        </li>
+                   
+                           <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-shopping-cart first"></i>
+                                <span class="menu-text">Utilities</span>
+                                </div>
+                            </a>
+                            <div class="sidebar-submenu shadow">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </li> 
+                         <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span class="menu-text">Pages</span>
+                                </div>
+                            </a>
+                             <div class="sidebar-submenu shadow">
+                                
+                                <ul>
+                                      <li class="header-submenu">
+                                      <span>LOGIN SCREENS:</span>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">Login</a>
+                                    </li>
+                                    <li>
+                                        <a href="register.html">Register</a>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                        </li> 
+                        <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span class="menu-text">Charts</span>
+                                </div>
+                            </a>
+                        </li> 
+                        <li class="sidebarsmall-dropdown">
+                            <a href="#">
+                                <div class="sidebarsmall-title">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span class="menu-text">Tables</span>
+                         
+                                </div>
+                            </a>
+                        </li> 
+             </ul>
+              <div id="lastline" class="hrflex">
+                <hr />
+              </div>
+             <div class="navopenclose navleft" >
+                <div id="navclose" class="iconhover"  >
+                <i class="fas fa-angle-right fa-lg rotate"></i>
+                </div>
+             </div>
+         </nav>
+         <nav class="sidenav">
+            <div class="navlogo">
+                <a href="#"><i class="fas fa-smile fa-2x"></i></i></a>
+                <h3>SB ADMIN</h3>
+            </div>
+            <div class="hrflex">
+            <hr />
+            </div>
+            <div class="navdashboard">
+                <a href="#"><i class="fa fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="hrflex">
+            <hr />
+            </div>
+            <ul>
+                        <li class="header-menu">
+                            <span>INTERFACE</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span class="menu-text">Dashboard</span>
+                                </div>
+                                <i class="fas fa-angle-right navright fa-lg"></i>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                           <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fa fa-shopping-cart first"></i>
+                                <span class="menu-text">Utilities</span>
+                                </div>
+                                <i class="fas fa-angle-right navright fa-lg"></i>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Products
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Credit cart</a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </li>  
+                          <div class="hrflex">
+                          <hr />
+                          </div>
+                          <li class="header-menu">
+                            <span>ADDONS</span>
+                        </li>
+                       <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fas fa-folder"></i>
+                                <span class="menu-text">Pages</span>
+                                </div>
+                                <i class="fas fa-angle-right navright fa-lg"></i>
+                            </a>
+                            <div class="sidebar-submenu">
+                                
+                                <ul>
+                                      <li class="header-submenu">
+                                      <span>LOGIN SCREENS:</span>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">Login</a>
+                                    </li>
+                                    <li>
+                                        <a href="register.html">Register</a>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                        </li>
+                           <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fa fa-shopping-cart first"></i>
+                                <span class="menu-text">Utilities</span>
+                                </div>
+                                <i class="fas fa-angle-right navright fa-lg"></i>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li class="header-submenu">
+                                      <span>CUSTOM UTILITES:</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Products
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Credit cart</a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </li> 
+                     
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fa fa-chart-bar"></i>
+                                <span class="menu-text">Charts</span>
+                                </div>
+                            </a>
+                        </li> 
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <div class="sidebar-title">
+                                <i class="fas fa-table"></i>
+                                <span class="menu-text">Tables</span>
+                         
+                                </div>
+                            </a>
+                        </li> 
+             </ul>
+              <div class="hrflex">
+                <hr />
+              </div>
+             <div class="navopenclose navleft" >
+                <div id="navclose" class="iconhover"  >
+                <i class="fas fa-angle-left fa-lg rotate"></i>
+                </div>
+             </div>
+         </nav>
+    
+     <div class="maincontent">
+         <nav class="topnav">
+            <div class="smallmenuwrapper">
+                <div id="barswrapper"><i class="fas fa-bars"></i></div>
+            </div>
+            <div class="main-menu">
+
+            <div class="searchwrapper">
+           <input class="search" type="text" name="" value="Search for...">
+            <div class="searchbtn">
+                <i class="fas fa-search"></i>
+            </div>
+            </div>
+             </div>
+             <div class="smallsearchwrapper">
+             <div class="searchwrappersmall">
+                     <i class="fas fa-search"></i>
+             </div>
+             
+        </div>
+            <ul class="right-menu">
+                        <li><a href="#"><i class="fas fa-bell fa-md grey"></i></a></li>
+                        <li><a href="#"><i class="fas fa-envelope fa-md grey"></i></a></li>
+            </ul>
+
+              <div class="line">
+                </div>
+
+                <div class="social">
+                    <span>Mason Cruse</span>
+                    <img id="img" class="avi" src="{% static 'dashboard/imgs/avi.jpeg' %}">
+                </div>
+         </nav>
+         <div class="smallcontainer">
+           <div id="small">
+             <div id="smallsearch" class="searchsmallwrapper">
+           <input class="searchsmall" type="text" name="" value="Search for...">
+            <div class="searchsmallbtn">
+                <i class="fas fa-search"></i>
+            </div>
+            </div>
+            </div>
+        </div>
+         <div class="maincontenttitle"><span>Dashboard</span></div>
+
+         <section class="note">
+
+            <div class="card blue-border">
+                <div class="card-left ">
+                <h3 class="blue">EARNINGS (MONTHLY)</h3>
+                <p>$40,000</p>
+                </div>
+
+                  <ul class="right-card">
+                        
+                        <li><a href="#"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+                  </ul>
+            </div>
+            <div class="card green-border">
+                <div class="card-left">
+                <h3 class="green">EARNINGS (ANNUAL)</h3>
+                <p>$215,000</p>
+                </div>
+
+                  <ul class="right-card">
+                        
+                        <li><a href="#"><i class="fas fa-dollar-sign fa-2x"></i></a></li>
+                  </ul>
+            </div>
+            <div class="card teal-border">
+                <div class="card-left">
+                <h3 class="teal">NEW USERS</h3>
+                <p>{{numofnewusers}}</p>
+                </div>
+
+                  <ul class="right-card">
+                        
+                        <li><a href="#"><i class="fa fa-users fa-2x"></i></a></li>
+                  </ul>
+            </div>
+            <div class="card yellow-border">
+                <div class="card-left">
+                <h3 class="yellow">PENDING REQUESTS</h3>
+                <p>18</p>
+                </div>
+
+                  <ul class="right-card">
+                        
+                        <li><a href="#"><i class="fas fa-comments fa-2x"></i></a></li>
+                  </ul>
+            </div>
+             
+         </section>
+
+         <section class="graphs">
+             <div id="bar" class="graphwrapper">
+                <div class="graphheader">
+                    <h3>
+                    Login Frequency
+                    </h3>
+                </div>
+                <div class="graphbody">
+                    <div class="chartwrapper">
+                    <canvas id="myChart"></canvas>
+                    </div>
+
+                <script>
+
+
+                var a = 0
+    
+                var mylabels = JSON.stringify("{{ labels }}");
+                var openb = '[';
+                mylabels = mylabels.replace(/&#x27/g,'').replace(/;/g,'').replace(/openb/g,'');
+                //remove [ from beg and ] from end
+                mylabels = mylabels.substring(2,mylabels.length-2)
+                mylabels = mylabels.split(",")
+                console.log(mylabels)
+                  console.log(typeof(mylabels))
+                console.log('labels size ',{{size}})
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var data = []
+                console.log('data ',{{timedata}})
+                var colors = ['rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 99, 132, 0.2)']
+                var colorlist = [];
+                console.log('colors ',colors[0])
+                for(let i=0; i<{{size}}; i++){
+                    colorlist.push(colors[i%6])
+                }
+                console.log('colorlist ',colorlist)
+                var myChart = new Chart(ctx, {
+                  
+                    type: 'bar',
+                    data: {
+                        labels: mylabels,
+                        datasets: [{
+                            label: 'days since last login',
+                            data: {{timedata}},
+                            backgroundColor: colorlist,
+                            borderColor: colorlist,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        responsive: true, 
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                </script>
+
+
+                </div>
+             </div>
+              <div id="donut" class="graphwrapper">
+                <div class="graphheader">
+                    <h3>Revenue Sources</h3>
+                </div>
+                <div class="graphbody">
+                    <div class="donutwrapper">
+                    <canvas id="doughnut-chart"></canvas>
+
+                    </div>
+
+                </div>
+             </div>
+         </section>
+
+         <section class="projects">
+
+            <div class="projects-left">
+             <div class="projectswrapper">
+                <div class="projectsheader">
+                    <h3>
+                    Projects
+                    </h3>
+                </div>
+                <div class="projectsbody">
+                    <div class="projectprogress">
+                        <div class="projecttitlewrapper">
+                            <span id="server">Server Migration</span>
+                            <span>20%</span>
+                        </div>
+                    </div>
+                    <div class="projectprgressbarwrapper">
+                    <div class="projectprogressbar">
+                        <div id="progress0" class="progressc"></div>
+                    </div>
+                    </div>
+                    <div class="projectprogress">
+                        <div class="projecttitlewrapper">
+                            <span id="sales">Sales Tracking</span>
+                            <span>40%</span>
+                        </div>
+                    </div>
+                    <div class="projectprgressbarwrapper">
+                    <div class="projectprogressbar">
+                        <div id="progress1" class="progressc"></div>
+                    </div>
+                    </div>
+                     <div class="projectprogress">
+                        <div class="projecttitlewrapper">
+                            <span id="database">Customer Database</span>
+                            <span>60%</span>
+                        </div>
+                    </div>
+                    <div class="projectprgressbarwrapper">
+                    <div class="projectprogressbar">
+                        <div id="progress2" class="progressc"></div>
+                    </div>
+                    </div>
+                     <div class="projectprogress">
+                        <div class="projecttitlewrapper">
+                            <span id="payout">Payout Details</span>
+                            <span>80%</span>
+                        </div>
+                    </div>
+                    <div class="projectprgressbarwrapper">
+                    <div class="projectprogressbar">
+                        <div id="progress3" class="progressc"></div>
+                    </div>
+                    </div>
+                     <div class="projectprogress">
+                        <div class="projecttitlewrapper">
+                            <span id="payout">Account Setup</span>
+                            <span>Complete!</span>
+                        </div>
+                    </div>
+                    <div class="projectprgressbarwrapper">
+                    <div class="projectprogressbar">
+                        <div id="progress4" ></div>
+                    </div>
+                    </div>
+                </div>
+             </div>
+             <div class="colorinfo">
+                <div class="info">
+                    <div>
+                        <h3>Primary</h3>
+                        <p>#4e73df</p>
+                    </div>
+                    
+                </div>
+                <div class="info1">
+                    <div>
+                        <h3>Success</h3>
+                        <p>##1cc88a</p>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div>
+                        <h3>Info</h3>
+                        <p>#4e73df</p>
+                    </div>
+                </div>
+                <div class="info3">
+                    <div>
+                        <h3>Warning</h3>
+                        <p>#f6c23e</p>
+                    </div>
+                </div>
+                <div class="info4">
+                   <div>
+                        <h3>Danger</h3>
+                        <p>#e74a3b</p>
+                    </div>
+                </div>
+                <div class="info5">
+                    <div>
+                        <h3>Secondary</h3>
+                        <p>#858796</p>
+                    </div>
+                </div>
+             </div>
+            </div>
+            <div class="projects-right">
+              <div class="illustrationswrapper">
+                <div class="illustrationsheader">
+                    <h3>
+                    Illustrations
+                    </h3>
+                </div>
+                <div class="illustrationsbody">
+                    <img id="img" class="avi" src="{% static 'dashboard/imgs/undraw_posting_photo.svg' %}">
+                    <div id="illp">
+                        <p>Add some quality, svg illustrations to your project courtesy of unDraw, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                    </div>
+                    <div id="illa">
+                        <a href="#">Browse Illustrations on unDraw →</a>
+                    </div>
+                </div>
+              
+             </div>
+             <div class="developmentwrapper">
+                <div class="developmentheader">
+                    <h3>
+                    Development Approach
+                    </h3>
+                </div>
+                <div class="developmentbody">
+                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+
+                    <p>Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                </div>
+             </div>
+            </div>
+         </section>
+         <footer class="footer">
+            <span> Copyright &copy Mason Cruse 2020</span>
+         </footer>
+     </div>
+    </div>
+    <script src="{% static 'dashboard/js/pie.js' %}"></script>
+    <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+   
+ </body>
+</html>

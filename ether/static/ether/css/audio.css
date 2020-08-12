@@ -1,0 +1,51 @@
+ #theaudioplayer{
+  position: fixed;
+  margin-top: -50px;
+  margin-left: -100px;
+  display: none;
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #ccc;
+  border:1px solid rgba(0,0,0,.2);
+  flex-direction: column;
+  left:50%;
+  top:50%;
+  background-color:#fff;
+  z-index:5002;
+  }
+.audiopopup{
+  z-index:5002;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  display: none;
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #ccc;
+  border:1px solid rgba(0,0,0,.2);
+  flex-direction: column;
+  left:50%;
+  top:50%;
+  background-color:#fff;
+  z-index:5002;
+}
+.audiosidebar{
+  width:200px;
+  z-index:5002;
+  position: fixed; 
+  margin-top: -50px;
+  margin-left: -100px;
+  display: block;
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #ccc;
+  border:1px solid rgba(0,0,0,.2);
+  flex-direction: column;
+  left:125;
+  bottom:20;
+  background-color:#fff;
+  z-index:5002;
+}
+
+.hideaudio{
+  display:none;
+}

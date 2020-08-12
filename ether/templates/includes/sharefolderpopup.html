@@ -1,0 +1,18 @@
+<div class="share-wrapper" id='sharefolder-popup'>
+    <div class="share-r">
+        <div class="shareiconwrap">
+            <i class="fas fa-user-plus"></i>    
+        </div>
+        <h3>Share with people</h3>
+        <i id="share-close" class="fas fa-times" onClick="shareFolderClose()"></i>
+    </div>
+    <div class="share-r1">
+        <form id='sharefolderform' method='post' action='/sharefolder/'>
+        <input id="sharefolderinput" type="text" name="share-q" class="share-q blueglow">
+        </form>
+    </div>
+    <div class="share-r2">
+        <a href="#" class="close-link" onClick="shareFolderClose()"><div class="share-cancel">CANCEL</div></a>
+        <a href="#" class="create-link"><div onclick="document.getElementById('sharefolderform').submit();" class="share-create">SHARE</div></a>
+    </div>
+</div>
