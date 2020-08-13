@@ -6,69 +6,13 @@
 <link rel="stylesheet" href="{% static "ether/css/fileupload.css" %}">
 <link rel="stylesheet" href="{% static "ether/css/movetopopupstyle.css" %}">
 
-    
-    <script>  
-    $(function(){
-            $("#searchuinput").keyup(function () {
-      var searchq = $("#searchuinput").val();
-      console.log(searchq);
-      $.ajax({
-        type: "POST",
-        url: '/ajax/searchajax/',
-        data: {
-          'searchq': searchq
-        },
-        success: searchSuccess,
-        dataType: 'html'
-        
-
-    });
-    });
-});
-function searchSuccess(data, textStatus, jqXHR){
-      var searchq = $("#searchuinput").val();
-    if(searchq.length === 0){
-
-    $('#search-results-wrapper').css('display','none');
-    $('#searchtypewrapper').css('display','block');
-    }
-    else
-    {
-    $('#search-results-wrapper').css('display','block');
-    $('#searchtypewrapper').css('display','none');
-    }
-    $('#search-results-wrapper').html(data);
-    console.log(data);
-}   
-
-  </script>
-
-    <script>
-        $("#filepicker").change(function(){
-            console.log($(this).val());
-
-
-   $.ajax({
-        url: '/ajax/validate_upload/',
-        data: {
-          'file_field':file_field 
-        },
-        dataType: 'json',
-        success: function (data) {
-          if (data.is_taken) {
-            alert("A user with this username already exists.");
-          }
-        }
-      });
-        });
-    </script>
-
+   
 
 {% endblock %}
 {% block javascript %}
 <script src="{% static 'ether/js/movetopopup.js' %}"></script>
 <script src="{% static 'ether/js/findfile.js' %}"></script>
-
+<script src="{% static 'ether/js/shareajax.js' %}"></script>
 
 <script src="{% static 'ether/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
 <script src="{% static 'ether/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>

@@ -595,6 +595,12 @@ def rename(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontext(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive.html', context)
     newname = newname+'.'+f.file_type
     if f.starred:
         isStarred = True
@@ -618,6 +624,12 @@ def renametable(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontext(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive-table-old.html', context)
     newname = newname+'.'+f.file_type
     if f.starred:
         isStarred = True
@@ -644,6 +656,12 @@ def renametrashtable(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontexttrash(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive-table-trash.html', context)
     newname = newname+'.'+f.file_type
     if f.starred:
         isStarred = True
@@ -667,6 +685,12 @@ def renamestartable(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontextstar(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive-table-star.html', context)
     newname = newname+'.'+f.file_type
     if f.starred:
         isStarred = True
@@ -695,6 +719,12 @@ def renamestar(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontextstar(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive.html', context)
     newname = newname+'.'+f.file_type
     if f.starred:
         isStarred = True
@@ -718,6 +748,12 @@ def renametrash(request, slug, pk):
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontexttrash(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive', context)
     newname = newname+'.'+f.file_type
 
     filecopy = File.objects.create(owner=f.owner,name=newname,path=f.path,file=f.file,file_type=f.file_type,size=f.size,trash=True,starred=False)
@@ -767,6 +803,10 @@ def renamesub(request, slug, pk):
 
     f = File.objects.get(pk=pk)
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = {"parent":pf,"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage, 'alert':1, 'warningmsg':warningmsg, 'all_folder_list':all_folder_list}
+        return render(request, 'uploads/subfolder.html', context)
     os.chdir(BASE_DIR+'/media/')
     shutil.move(BASE_DIR+'/media/'+f.name, HOMEDIR+'/media/'+newname+'.'+f.file_type)
 
@@ -828,7 +868,13 @@ def renamefolder(request, slug, pk):
 
    
     f = Folder.objects.get(pk=pk)
-    newname = request.POST.get('newname-q','')
+    newname = request.POST.get('newname-q','') 
+    if newname == '':
+        warningmsg = 'enter a name'
+        context = getcontext(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive.html', context)
     f.name = newname
     f.save()
 
@@ -845,6 +891,10 @@ def renamefoldertable(request, slug, pk):
     
     f = Folder.objects.get(pk=pk)
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a folder name'
+        context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage, 'alert':1, 'warningmsg':warningmsg, 'all_folder_list':all_folder_list}
+        return render(request, 'uploads/my-drive-table-old.html', context)
     f.name = newname
     f.save()
 
@@ -861,6 +911,10 @@ def renamefoldertabletrash(request, slug, pk):
    
     f = Folder.objects.get(pk=pk)
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a folder name'
+        context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage, 'alert':1, 'warningmsg':warningmsg, 'all_folder_list':all_folder_list}
+        return render(request, 'uploads/my-drive-table-old.html', context)
     f.name = newname
     f.save()
 
@@ -874,6 +928,10 @@ def renamefolderstar(request, slug, pk):
   
     f = Folder.objects.get(pk=pk)
     newname = request.POST.get('newname-q','')
+    if newname == '':
+        warningmsg = 'enter a folder name'
+        context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage, 'alert':1, 'warningmsg':warningmsg, 'all_folder_list':all_folder_list}
+        return render(request, 'uploads/my-drive-star.html', context)
     f.name = newname
     f.save()
 
@@ -945,6 +1003,12 @@ def renamesubfolder(request, slug, pk):
 def share(request, slug, pk):
     context = getcontext(request)
     sharewith = request.POST.get('share-q','')
+    if sharewith == '':
+        warningmsg = 'enter a user'
+        context = getcontext(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive.html', context)
     exists = CustomUser.objects.filter(email=sharewith)
     sharepro = None
     if(exists):
@@ -968,6 +1032,12 @@ def share(request, slug, pk):
 def sharefolder(request, slug, pk):
     context = getcontext(request)
     sharewith = request.POST.get('share-q','')
+    if sharewith == '':
+        warningmsg = 'enter a user'
+        context = getcontext(request)
+        context.update({"warningmsg":warningmsg})
+        context.update({"alert":1})
+        return render(request, 'uploads/my-drive.html', context)
     exists = CustomUser.objects.filter(email=sharewith)
     sharepro = None
     if(exists):
@@ -1498,7 +1568,7 @@ def copyfiletrashtable(request,slug,pk):
 @csrf_exempt
 @login_required(login_url='/users/login/')
 def copyfiletable(request,slug,pk):
-    pro = Profile.objects.get(users=request.user)
+    pro = Profile.objects.get(user=request.user)
     f = File.objects.get(pk=pk)
     fname = f.name.split(".")
     if len(fname) > 1:
@@ -1831,6 +1901,7 @@ def dirwalkstar(pro, pk, argparent):
 
 @login_required(login_url='/users/login/')
 def copyfolderview(request,slug,pk):
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalkcopyfolder(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
@@ -1841,6 +1912,7 @@ def copyfolderview(request,slug,pk):
 
 @login_required(login_url='/users/login/')
 def copyfoldertableview(request,slug,pk):
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalkcopyfolder(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
@@ -1851,139 +1923,47 @@ def copyfoldertableview(request,slug,pk):
 
 @login_required(login_url='/users/login/')
 def copystarfolderview(request,slug,pk):
-    user = request.user
-    pro = Profile.objects.get(user=user)
-    email = user.email
-    uid = request.session['userid']
-    cuser = User.objects.get(id=uid)
-    name = cuser.firstname + ' ' + cuser.lastname
-    firstinitial = cuser.firstname[0]
-    firstinitial = firstinitial.upper()
-    image_list = File.objects.filter(owner=pro,starred=True)
-    folder_list = None
-    if pro.gid != 0:
-        g = Folder.objects.get(id=pro.gid)
-        folder_list = Folder.objects.filter(parent=g,starred=True)
-    qa_list = []
-    x = 0
-
-    for image in image_list:
-        if 'jpeg' or 'png' or 'jpg' in image.file_type:
-            x = x + 1
-            if x == 20:
-                break
-            qa_list.append(image)
-    all_folder_list = Folder.objects.filter(owner=pro)
-    storage = getstorage(pro)
-    storagemb = getstoragemb(pro)
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalkstar(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
-    image_list = File.objects.filter(owner=pro,starred=True)
-    context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage,'successalert':1,'successmsg':successmsg}
+    context = getcontextstar(request)
+    context.update({"successmsg":successmsg})
+    context.update({"successalert":1})
     return render(request, 'uploads/my-drive-star.html', context)
 
 @login_required(login_url='/users/login/')
 def copystarfoldertableview(request,slug,pk):
-    user = request.user
-    pro = Profile.objects.get(user=user)
-    email = user.email
-    uid = request.session['userid']
-    cuser = User.objects.get(id=uid)
-    name = cuser.firstname + ' ' + cuser.lastname
-    firstinitial = cuser.firstname[0]
-    firstinitial = firstinitial.upper()
-    image_list = File.objects.filter(owner=pro,starred=True)
-    folder_list = None
-    if pro.gid != 0:
-        g = Folder.objects.get(id=pro.gid)
-        folder_list = Folder.objects.filter(parent=g,starred=True)
-    qa_list = []
-    x = 0
-
-    for image in image_list:
-        if 'jpeg' or 'png' or 'jpg' in image.file_type:
-            x = x + 1
-            if x == 20:
-                break
-            qa_list.append(image)
-    all_folder_list = Folder.objects.filter(owner=pro)
-    storage = getstorage(pro)
-    storagemb = getstoragemb(pro)
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalkstar(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
-    image_list = File.objects.filter(owner=pro,starred=True)
-    context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage,'successalert':1,'successmsg':successmsg}
+    context = getcontextstar(request)
+    context.update({"successmsg":successmsg})
+    context.update({"successalert":1})
     return render(request, 'uploads/my-drive-table-star.html', context)
 
 @login_required(login_url='/users/login/')
 def copytrashfolderview(request,slug,pk):
-    user = request.user
-    pro = Profile.objects.get(user=user)
-    email = user.email
-    uid = request.session['userid']
-    cuser = User.objects.get(id=uid)
-    name = cuser.firstname + ' ' + cuser.lastname
-    firstinitial = cuser.firstname[0]
-    firstinitial = firstinitial.upper()
-    image_list = File.objects.filter(owner=pro,trash=True)
-    folder_list = None
-    if pro.gid != 0:
-        g = Folder.objects.get(id=pro.gid)
-        folder_list = Folder.objects.filter(parent=g,trash=True)
-    qa_list = []
-    x = 0
-
-    for image in image_list:
-        if 'jpeg' or 'png' or 'jpg' in image.file_type:
-            x = x + 1
-            if x == 20:
-                break
-            qa_list.append(image)
-    all_folder_list = Folder.objects.filter(owner=pro)
-    storage = getstorage(pro)
-    storagemb = getstoragemb(pro)
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalktrash(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
-    image_list = File.objects.filter(owner=pro,trash=True)
-    context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage,'successalert':1,'successmsg':successmsg}
+    context = getcontexttrash(request)
+    context.update({"successmsg":successmsg})
+    context.update({"successalert":1})
     return render(request, 'uploads/my-drive-trash.html', context)
 
 
 @login_required(login_url='/users/login/')
 def copytrashfoldertableview(request,slug,pk):
-    user = request.user
-    pro = Profile.objects.get(user=user)
-    email = user.email
-    uid = request.session['userid']
-    cuser = User.objects.get(id=uid)
-    name = cuser.firstname + ' ' + cuser.lastname
-    firstinitial = cuser.firstname[0]
-    firstinitial = firstinitial.upper()
-    image_list = File.objects.filter(owner=pro,trash=True)
-    folder_list = None
-    if pro.gid != 0:
-        g = Folder.objects.get(id=pro.gid)
-        folder_list = Folder.objects.filter(parent=g,trash=True)
-    qa_list = []
-    x = 0
-
-    for image in image_list:
-        if 'jpeg' or 'png' or 'jpg' in image.file_type:
-            x = x + 1
-            if x == 20:
-                break
-            qa_list.append(image)
-    all_folder_list = Folder.objects.filter(owner=pro)
-    storage = getstorage(pro)
-    storagemb = getstoragemb(pro)
+    pro = Profile.objects.get(user=request.user)
     f = Folder.objects.get(pk=pk)
     dirwalktrash(pro, f,f.parent)
     successmsg = 'copied folder ' + f.name
-    image_list = File.objects.filter(owner=pro,trash=True)
-    context = {"email":email,"firstinitial":firstinitial,"name":name,"storage":storage,"storagemb":storagemb,"all_folder_list":all_folder_list,"image_list":image_list, 'folder_list':folder_list, 'storage':storage,'successalert':1,'successmsg':successmsg}
+    context = getcontexttrash(request)
+    context.update({"successmsg":successmsg})
+    context.update({"successalert":1})
     return render(request, 'uploads/my-drive-table-trash.html', context)
 
 @login_required(login_url='/users/login/')
@@ -2121,11 +2101,7 @@ class ProgressBarUploadView(View):
 
         if form.is_valid():
             File = form.save()
-            url = File.file.name
-            url = url[6:]
-            print('p url ',url)
-            name = File.file.name
-            name = name.split('/')[-1]
+            name = File.file.name.split('/')[-1]
             File.name = name
             path = File.file.path
             print('fname ',name)
@@ -2141,7 +2117,7 @@ class ProgressBarUploadView(View):
             File.file_type = ftype;
             File.owner = pro
             fpath = File.file.path
-            fpath = fpath.replace('/home/mason/projects/ether/','')
+            fpath = fpath.replace('/home/mason/projects/ether','')
             File.file.name = fpath
             print('fname ',File.file.name)
             File.size = size
@@ -2149,7 +2125,7 @@ class ProgressBarUploadView(View):
             pro.storage += size
             pro.save()
             print(File)
-            data = {'is_valid': True, 'name': File.fpath, 'url': File.file.name,'fileid':File.id}
+            data = {'is_valid': True, 'name': File.file.name, 'url': File.file.name,'fileid':File.id}
         else:
             print('is_valid false')
             data = {'is_valid': False}
@@ -2217,83 +2193,8 @@ class ProgressBarUploadSubView(View):
             data = {'is_valid': False}
         return JsonResponse(data)
 
-class ProgressBarUploadSubViewOld(View):
-    def get(self, request):
-        photos_list = File.objects.all()
-        return render(self.request, 'uploads/my-drive.html', {'photos': photos_list})
-
-    def post(self, request):
-        print('here');
-        form = PhotoForm(self.request.POST, self.request.FILES)
-        user = request.user
-        pro = Profile.objects.get(user=user)
-        form.instance.owner = pro
-        if 'fid' in request.session:
-            pk = request.session['fid']
-            pf = Folder.objects.get(id=pk)
-            pathname = pf.path
-        else:
-            pk = None
-            pf = None
-            pathname = ''
-        form.instance.path = pathname
-        if form.is_valid():
-            File = form.save()
-            name = File.file.name
-            name = name.split('/')[-1]
-            File.name = name
-            print('parent folder path ',pf.path)
-            fpath = File.file.path
-            fpath = fpath.replace(BASE_DIR,'')
-            File.file.name = '/' + fpath
-            print('filename ',File.file.name)
-            print('money time ',pf.path)
-            print('heee ',form)
-            print('name= ',name)
-        
-            pf = Folder.objects.get(id=pk)
-            pf.folderfiles.add(File)
-            print('pathhhh ',pf.path+'/'+name)
-            path = pf.path+'/'+name
-            path = path.replace(BASE_DIR,'')
-            ftype = File.file.name.split('.')[-1]
-            File.file_type = ftype
-            File.owner = pro
-
-            print('new subfile path = ',path)
-            oldpath = path
-            File.file.name = path
-            if os.path.getsize(path):
-                size = os.path.getsize(path)
-            else:
-                size = 0  
-            File.size = size
-            #File.path =  pf.path+File.name
-            File.save()
-            pro.storage += size
-            pro.save()
-            
-            print(File)
-            data = {'is_valid': True, 'name': File.name, 'url': oldpath, 'fileid':File.id}
-        else:
-            data = {'is_valid': False}
-        return JsonResponse(data)
 
 
-class DragAndDropUploadView(View):
-    def get(self, request):
-        photos_list = Photo.objects.all()
-        return render(self.request, 'photos/drag_and_drop_upload/index.html', {'photos': photos_list})
-
-    def post(self, request):
-        form = PhotoForm(self.request.POST, self.request.FILES)
-        if form.is_valid():
-            photo = form.save()
-            photo.owner
-            data = {'is_valid': True, 'name': photo.file.name, 'url': photo.file.url}
-        else:
-            data = {'is_valid': False}
-        return JsonResponse(data)
 
 @csrf_exempt
 def shareajax(request):

@@ -34,7 +34,7 @@ class File(models.Model):
     files = models.FileField(upload_to=content_file_name, blank=True)
     size = models.CharField(max_length=1000,blank=True)
     file = models.FileField(upload_to=user_directory_path, default='',blank=True)
-    images = models.ImageField(blank=True, upload_to='album')
+    images = models.FileField(blank=True, upload_to='album')
     starred = models.BooleanField(default=False)
     sharedwith = models.ManyToManyField(Profile, related_name='shared_with')
     trash = models.BooleanField(default=False)

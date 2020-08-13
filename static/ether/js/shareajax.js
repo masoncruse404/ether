@@ -32,7 +32,6 @@ function searchSuccess(data, textStatus, jqXHR){
 }   
 
  $(".shareuser").click(function(e) {
-       alert('fucker');
         e.stopPropagation();
    });
 
