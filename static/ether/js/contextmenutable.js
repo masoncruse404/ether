@@ -365,7 +365,6 @@ $(document)
         }
 
         document.getElementById("renametablefoldercontext").onclick = function(){
-          alert('clicked')
             let atc = '/renamefoldertable/'+i+'/';
             $('#renamefolder-popup').css('display','block');
 

@@ -2052,23 +2052,23 @@ def validate_upload(request):
     }
     return JsonResponse(data)
 
-@login_required(login_url='/users/login/')
+login_required(login_url='/users/login/')
 def download(request, slug, pk):
     f = File.objects.get(id=pk)
     user = request.user
     pro = Profile.objects.get(user=user)
+    print('in download')
 
-    if(f.path):
 
-        path = '/home/mason/projects/ether/'+f.file.name
-        print('fromdownloaditem'+path)
-        f0 = open(path, 'rb')
-        myfile = DjangoFile(f0)
-    else:
-        myfile = f.file
+    path = BASE_DIR + f.file.name
+    print('fromdownloaditem'+path)
+    f0 = open(path, 'rb')
+    myfile = DjangoFile(f0)
     response = HttpResponse(myfile)
     response['Content-Disposition'] = 'attachment; filename=' + f.name
     return response
+
+
 
 
 
@@ -2093,7 +2093,6 @@ class ProgressBarUploadView(View):
         return render(self.request, 'uploads/progress_bar_upload/index.html', {'photos': photos_list})
 
     def post(self, request):
-        time.sleep(1)  # You don't need this line. This is just to delay the process so you can see the progress bar testing locally.
         form = PhotoForm(self.request.POST, self.request.FILES)
         user = request.user
         pro = Profile.objects.get(user=user)
@@ -2114,10 +2113,12 @@ class ProgressBarUploadView(View):
             ftype = File.file.name.split('.')[-1]
             print('the name ',name)
             print('this is the path: ',File.file.path)
-            File.file_type = ftype;
+            File.file_type = ftype.lower()
+            print('file type lower ',ftype.lower())
+            print("actual file type ",File.file_type)
             File.owner = pro
             fpath = File.file.path
-            fpath = fpath.replace('/home/mason/projects/ether','')
+            fpath = fpath.replace(BASE_DIR,'')
             File.file.name = fpath
             print('fname ',File.file.name)
             File.size = size
@@ -2125,7 +2126,7 @@ class ProgressBarUploadView(View):
             pro.storage += size
             pro.save()
             print(File)
-            data = {'is_valid': True, 'name': File.file.name, 'url': File.file.name,'fileid':File.id}
+            data = {'is_valid': True, 'name': File.name, 'url': File.file.name,'fileid':File.id}
         else:
             print('is_valid false')
             data = {'is_valid': False}
@@ -2137,61 +2138,52 @@ class ProgressBarUploadSubView(View):
         return render(self.request, 'uploads/progress_bar_upload/index.html', {'photos': photos_list})
 
     def post(self, request):
-        time.sleep(1)  # You don't need this line. This is just to delay the process so you can see the progress bar testing locally.
         form = PhotoForm(self.request.POST, self.request.FILES)
         user = request.user
         pro = Profile.objects.get(user=user)
         form.instance.owner = pro
+       
 
         if form.is_valid():
-
             if 'fid' in request.session:
                 pk = request.session['fid']
+                print('pk')
                 pf = Folder.objects.get(id=pk)
                 form.instance.path = pf.path
+                print('pk path ',pf.path)
             File = form.save()
-            name = File.file.name
-            name = name.split('/')[-1]
+            name = File.file.name.split('/')[-1]
             File.name = name
-            print('parent folder path ',pf.path)
+            path = File.file.path
+            print('fname ',name)
+            print('file url ',File.file.url)
+            print('file path ',File.file.path)
+            if os.path.getsize(path):
+                size = os.path.getsize(path)
+            else:
+                size = 0            
+            ftype = File.file.name.split('.')[-1]
+            print('the name ',name)
+            print('this is the path: ',File.file.path)
+            File.file_type = ftype;
+            File.owner = pro
             fpath = File.file.path
-            oldpath = fpath
             fpath = fpath.replace(BASE_DIR,'')
             File.file.name = fpath
-            print('filename ',File.file.name)
-            print('money time ',pf.path)
-            print('heee ',form)
-            print('name= ',name)
-        
-            pf = Folder.objects.get(id=pk)
-            pf.folderfiles.add(File)
-            print('pathhhh ',pf.path+'/'+name)
-            path = pf.path+'/'+name
-            path = path.replace(BASE_DIR,'')
-            ftype = File.file.name.split('.')[-1]
-            File.file_type = ftype
-            File.owner = pro
-
-            
-            print('oldpath', oldpath)
-            if os.path.getsize(oldpath):
-                size = os.path.getsize(oldpath)
-                print('this is the size ',size)
-            else:
-                size = 0  
-            #File.path =  pf.path+File.name
+            print('fname ',File.file.name)
             File.size = size
             File.save()
-            print('the file size is now ',File.size)
-
+            pf = Folder.objects.get(id=pk)
+            pf.folderfiles.add(File)
             pro.storage += size
             pro.save()
-       
-            data = {'is_valid': True, 'name': File.name, 'url': File.file.name,'fileid':File.id, 'fsize':size}
+            print(File)
+            data = {'is_valid': True, 'name': File.file.name, 'url': File.file.name,'fileid':File.id}
         else:
             print('is_valid false')
             data = {'is_valid': False}
         return JsonResponse(data)
+
 
 
 

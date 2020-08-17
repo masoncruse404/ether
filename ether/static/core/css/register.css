@@ -4,6 +4,9 @@ background-image:linear-gradient(rgb(78, 115, 223) 10%, rgb(34, 74, 190) 100%);
 	background:linear-gradient(180deg,#4e73df 10%,#224abe 100%);
 	font-family:arial;
 }
+#createaccountwrapper{
+	max-height:1400px;
+}
 
 .registerwrapper{
 

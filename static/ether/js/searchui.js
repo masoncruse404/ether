@@ -55,7 +55,6 @@ function searchSuccess(data, textStatus, jqXHR){
 //right down arrow
 //does nothing when clicked 
 $("#searchdown1").click(function() {
-	alert("coming");
 });
 
 //clears the input when the x icon is clicked

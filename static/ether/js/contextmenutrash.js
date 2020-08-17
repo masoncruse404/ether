@@ -343,10 +343,7 @@ $(document)
 
 
 
-// this is from another SO post...
 $(document).bind("click", function(event) {
-  //alert('here');
-
   document.getElementById("rmenu").className = "hide";
   document.getElementById("rmenufolder").className = "hide";
   document.getElementById("rmenuqa").className = "hide";

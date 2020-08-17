@@ -9,10 +9,11 @@ def content_file_name(instance, filename):
     return '/'.join(['content', instance.user.username, filename])
 
 def user_directory_path(instance, filename):
-    print('if ',instance.path)
+    print('if ',instance.file.path)
     # file will be uploaded to MEDIA_ROOT/beat/author/<filename>
     if instance.path:
         #subfolder
+        print('has path')
         x =  instance.path + '/' + filename
         print('this is instance path ',instance.path)
         print('this is the path sub created ',x)

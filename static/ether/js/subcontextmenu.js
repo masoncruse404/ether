@@ -155,7 +155,6 @@ $(document).ready(function() {
     $('body').on('contextmenu', 'a.file', function() {
 
 
-      //alert("contextmenu"+event);
 
 
     });
@@ -198,42 +197,6 @@ function mouseY(evt) {
   }
 }
 
-//$(document)
-    //.on('contextmenu', '.qafilea', function(e) {
-        //e.preventDefault();
-        //var i = this.id
-        //document.getElementById(i).click();
-        //console.log(this.id);
-        //var url = "/star/";
-        //var full = url + i;
-        //var turl = "/trash/";
-        //var tfull = turl + i;
-        //var durl = "/download/" + i;
-        //var dfurl = "/downloadfolder/" + i;
-        //console.log(full);
-      //document.getElementById("rmenuqa").className = "show";
-      //document.getElementById("rmenuqa").style.top = mouseY(event) + 'px';
-      //document.getElementById("rmenuqa").style.left = mouseX(event) + 'px';
-        //document.getElementById("starred").onclick = function(){
-            //document.getElementById("addtostar").href = full;
-        //}
-//
-        //document.getElementById("download").onclick = function(){
-            //document.getElementById("download").href = durl;
-        //}
-//
-        //document.getElementById("downloadfolder").onclick = function(){
-            //document.getElementById("downloadfolder").href = dfurl;
-        //}
-//
-        //document.getElementById("trash").onclick = function(){
-            //document.getElementById("addtotrash").href = tfull;
-            //console.log(tfull);
-        //}
-//
-      //window.event.returnValue = false;
-//});
-//
 $(document).ready(function() {
 
 
@@ -248,7 +211,6 @@ $(document).ready(function() {
     $('body').on('contextmenu', 'a.file', function() {
 
 
-      //alert("contextmenu"+event);
 
 
     });
@@ -338,29 +300,7 @@ $(document)
       window.event.returnValue = false;
 });
 
-$(document).ready(function() {
 
-
-  if ($(".file").addEventListener) {
-    $(".file").addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    }, false);
-  } else {
-
-    //document.getElementById("test").attachEvent('oncontextmenu', function() {
-    //$(".test").bind('contextmenu', function() {
-    $('body').on('contextmenu', 'a.file', function() {
-
-
-      //alert("contextmenu"+event);
-
-
-    });
-  }
-
-});
-
-// this is from another SO post...
 $(document).bind("click", function(event) {
   document.getElementById("rmenu").className = "hide";
   document.getElementById("rmenufolder").className = "hide";

@@ -332,6 +332,13 @@ $(document)
         }
 
 
+        document.getElementById("sharecontext").onclick = function(){
+             document.getElementById("shareform").action = "/share/q-"+ qid + '/';;
+
+        }
+
+
+
       window.event.returnValue = false;
 });
 

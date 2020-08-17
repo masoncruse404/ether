@@ -185,7 +185,6 @@ $(document)
 
             var act = '/moveto/q-'+qid;
             console.log('act ',act)
-            alert(act)
             $("#movetoform").attr('action',act)
         }
 

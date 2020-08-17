@@ -12,6 +12,7 @@
     {% if alert %}
  	{% include 'includes/warning.html' %}
 	{% endif %}
+	<div id="createaccountwrapper">
 	<form method="post">
     {% csrf_token %}
 		<div class="registerwrapper">
@@ -70,6 +71,7 @@
 			</div>
 		</div>
 		</form>
+	</div>
 		{% endblock %}
 
 		<script src="{% static 'core/js/errorCheckRegister.js' %}"></script>
