@@ -129,3 +129,22 @@ def handler500(request, *args, **argv):
 
     response.status_code = 500
     return response
+
+
+
+def changename(request):
+    if request.method == 'POST':
+        searchq = request.GET.get('qname', None)
+        print('searchqqq',searchq)
+        request.user.name = searchq
+        request.user.save()
+       
+    else:
+        pass
+    return render(request, 'core/changename.html')
+
+
+def accountview(request):
+    print('in account view')
+   
+    return render(request, 'core/account.html')

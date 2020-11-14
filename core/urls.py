@@ -16,6 +16,8 @@ urlpatterns = [
             								authentication_form=UserLoginForm),name='login'),
     path('loginpw/', views.user_login, name='loginpw'),
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
+	path('changename/',views.changename, name='changename'),
+	path('account/',views.accountview, name='account'),
 
 ]
 

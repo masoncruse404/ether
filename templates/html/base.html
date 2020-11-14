@@ -55,7 +55,7 @@
 
 <div class="cover"></div>
 <div class="page" id="page" >
- {% include 'includes/newmenu.html' %}
+ {% include 'includes/newmenutest.html' %}
     <div id="new-btn" class="new-btn-wrapper">
     <div id="new-btn-txt" class="new-btn">
         <i id="newplus" class="fas fa-plus"></i>
@@ -281,7 +281,37 @@
   <script src="{% static 'ether/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'ether/js/movetopopup.js' %}"></script>
   <script src="{% static 'ether/js/share.js' %}"></script>
+  <script type="text/javascript">
+    $("#upload_file").change(function () {
 
+  var url = $(this).attr("data-import-url")
+  var data = new FormData();
+  $.each($("#upload_file")[0].files, function(i, file) {
+    data.append("file", file);
+  });
+  data.append("csrfmiddlewaretoken", $(this).attr("data-csrf-token"));
+
+  $.ajax({
+    url: url,
+    data: data,
+    cache: false,
+    contentType: false,
+    processData: false,
+    type: 'post',
+    beforeSend: function () {
+      console.log('before')
+      // before send, display loading, etc...
+    },
+    success: function (data) {
+      // success handling...
+    },
+    error: function () {
+      // error handling... 
+    }
+  });
+
+});
+  </script>
     {% block javascript %}
     {% endblock %}
  

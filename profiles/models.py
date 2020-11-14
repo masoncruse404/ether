@@ -41,6 +41,8 @@ def create_user_profile(sender, instance, created, **kwargs):
 
         os.chdir(path)
         os.mkdir(path + instance.email)
+        g = uploads.Folder.objects.create(name='f')
+        g.save()
         pro.save()
 
 @receiver(post_save, sender=CustomUser)

@@ -1,6 +1,13 @@
 var count = 0;
 var numdone = 0;
 var fileid = 0;
+
+  $('#uploadstop').click(function (e) {
+    alert('here stop');
+    jqXHR.abort();
+    xhr.abort();
+  });
+
 function startHover(){
 $(document).on("mouseenter", ".fufilewrapper", function() {
    
@@ -31,7 +38,7 @@ $(function () {
     start: function (e) {
        $("#fu").css('display','block');
        $("#mbody").css('display','block');
-      console.log(e)
+       $(".fuprogresswrapper").css('display','block');
       startHover();
       $(".fuheader").css('display','flex');
       $(".foldera").css('display','block');
@@ -41,12 +48,13 @@ $(function () {
         }
         else
         {
-            $(".futitle").text("Uploading"+count+" items");
+            $(".futitle").text("Uploading");
         }
         count = count + 1;
     },
 
     stop: function (e) {
+      $(".fuprogresswrapper").css('display','none');
       numdone = 0;
     },
 
@@ -58,7 +66,7 @@ $(function () {
         }
         else
         {
-            $(".futitle").text("Uploading "+count+" items");
+            $(".futitle").text("Uploading items");
         }
         count = count + 1;
       console.log('here0');
@@ -66,9 +74,10 @@ $(function () {
       var progress = parseInt(data.loaded / data.total * 100, 10);
       var strProgress = progress + "%";
       $(".progress-bar").css({"width": strProgress});
-      $(".progress-bar").text(strProgress);
+      $("#futimer").text(strProgress);
     },
     done: function (e, data) {
+
         //get id of last file in flexbox container
        if(numdone == 0){
               fileid = $('.flexbox').children().last().prev().attr('id');
@@ -106,7 +115,7 @@ $(function () {
       var fcontentid = "fcontent-"+data.result.fileid;
       var imageid = 'img-' + id;
       //get file type
-      var filetype = data.result.url.split('.').pop();
+      var filetype = data.result.url.split('.').pop().toLowerCase();
       var fileurl = 0;
       var footerid = "file-infof"+id;
       if(filetype === 'png' || filetype === 'jpg' || filetype === 'jpeg'){

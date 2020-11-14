@@ -32,6 +32,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views import View
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 from django.contrib.auth import get_user_model
 
@@ -2165,7 +2166,7 @@ class ProgressBarUploadSubView(View):
             ftype = File.file.name.split('.')[-1]
             print('the name ',name)
             print('this is the path: ',File.file.path)
-            File.file_type = ftype;
+            File.file_type = ftype.lower()
             File.owner = pro
             fpath = File.file.path
             fpath = fpath.replace(BASE_DIR,'')
@@ -2178,7 +2179,7 @@ class ProgressBarUploadSubView(View):
             pro.storage += size
             pro.save()
             print(File)
-            data = {'is_valid': True, 'name': File.file.name, 'url': File.file.name,'fileid':File.id}
+            data = {'is_valid': True, 'name': File.name, 'url': File.file.name,'fileid':File.id}
         else:
             print('is_valid false')
             data = {'is_valid': False}
@@ -2222,3 +2223,22 @@ def searchajax(request):
         'is_taken': f_json
     }
     return render(None,'uploads/ajax_search.html', {'files':f})
+
+
+def handle_uploaded_file(f,request):
+    with open('/home/mason/projects/ether/media/accounts/'+str(request.user)+'/'+str(f), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+def ajax_upload(request):
+    if request.method == "POST":
+        uploaded_files = request.FILES.getlist('file')
+        print(uploaded_files)
+        for file in uploaded_files:
+            handle_uploaded_file(file,request)
+            return HttpResponseRedirect('/uploads/my-drive')
+
+
+
+    return render(None,'uploads/my-drive.html', {})
+
+

@@ -12,6 +12,7 @@ urlpatterns = [
         path('', views.mydrive),
         url(r'^progress-bar-upload/$', views.ProgressBarUploadView.as_view(), name='progress_bar_upload'),
         url(r'^progress-bar-subupload/$', views.ProgressBarUploadSubView.as_view(), name='progress_bar_subupload'),
+        path('upload/', views.ajax_upload, name='ajax_upload'),
         path('mydrive/', views.mydrive, name='mydrive'),
         path('mydrivetable/', views.mydrivetable, name='mydrivetable'),
         path('mydrivestartable/', views.mydrivestartable, name='mydrivestartable'),
